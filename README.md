@@ -1,1 +1,1 @@
-# gralaf
+# Graph Based Liability Analysis Framework
