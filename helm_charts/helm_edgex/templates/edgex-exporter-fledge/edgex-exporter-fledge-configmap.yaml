@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: edgex-exporter-fledge-configmap
+data:
+  configuration.toml: |
+    [Writable]
+    LogLevel = "INFO"
+      [Writable.InsecureSecrets]
+        [Writable.InsecureSecrets.DB]
+        path = "redisdb"
+          [Writable.InsecureSecrets.DB.Secrets]
+          username = ""
+          password = ""
+
+    [Service]
+    HealthCheckInterval = "10s"
+    Host = "localhost"
+    Port = 59780 # Adjust if running multiple examples at the same time to avoid duplicate port conflicts
+    ServerBindAddr = "" # if blank, uses default Go behavior https://golang.org/pkg/net/#Listen
+    StartupMsg = "LF Edge Fledge Export Service"
+    RequestTimeout = "30s"
+    MaxRequestSize = 0
+    MaxResultCount = 0
+
+    [Registry]
+    Host = "edgex-core-consul"
+    Port = 8500
+    Type = "consul"
+
+    # Database is require when Store and Forward is enabled or when using Redis for the Messagebus
+    [Database]
+    Type = "redisdb"
+    Host = "edgex-redis"
+    Port = 6379
+    Timeout = "30s"
+
+    [Clients]
+      [Clients.core-metadata]
+      Protocol = "http"
+      Host = "edgex-core-metadata"
+      Port = 59881
+
+    # SecretStore is required when Store and Forward is enabled and running with security
+    # so Database credentials can be pulled from Vault.
+    # Note when running in docker from compose file set the following environment variables:
+    #   - SecretStore_Host: edgex-vault
+    [SecretStore]
+    Type = "vault"
+    Host = "localhost"
+    Port = 8200
+    Path = "app-fledge-export/"
+    Protocol = "http"
+    TokenFile = "/tmp/edgex/secrets/app-fledge-export/secrets-token.json"
+    RootCaCertPath = ""
+    ServerName = ""
+      [SecretStore.Authentication]
+      AuthType = "X-Vault-Token"
+
+    [Trigger]
+    Type="edgex-messagebus"
+      [Trigger.EdgexMessageBus]
+      Type = "redis"
+        [Trigger.EdgexMessageBus.SubscribeHost]
+        Host = "edgex-redis"
+        Port = 6379
+        Protocol = "redis"
+        SubscribeTopics="edgex/events/#"
+        [Trigger.EdgexMessageBus.PublishHost]
+        Host = "edgex-redis"
+        Port = 6379
+        Protocol = "redis"
+        PublishTopic="example"
+
+    [ApplicationSettings]
+    FledgeSouthHTTPEndpoint = "http://10.0.1.1:6683/sensor-reading"
+

@@ -1,0 +1,12 @@
+FROM python:3.10-slim
+
+#RUN apk add --update gcc libc-dev linux-headers build-base && rm -rf /var/cache/apk/*
+
+RUN pip install locust
+
+#RUN apk del gcc libc-dev linux-headers build-base && rm -rf /var/cache/apk/*
+
+ADD locust_edgex.py .
+ADD data.py .
+
+ENTRYPOINT ["python", "./locust_edgex.py"]

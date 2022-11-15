@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>LASM Mockup Service</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='incident.css') }}">
+</head>
+<body>
+<h1>LASM Mockup Service</h1>
+<h2>SLA violations</h2>
+<table class="container">
+<thead>
+<th>Time</th>
+<th>Violation Type</th>
+<th>Responsible Provider</th>
+<th>Service Name</th>
+<th>Expected Value</th>
+<th>Reported Value</th>
+<th>Possible Penalty</th>
+</thead>
+    <tbody>
+    {% for incident in incidents %}
+    <tr>
+        <td>{{incident["time"]}}</td>
+        <td>{{incident["violation_type"]}}</td>
+        <td>{{incident["responsible_provider"]}}</td>
+        <td>{{incident["service_name"]}}</td>
+        <td>{{incident["expected_value"]}}</td>
+        <td>{{incident["reported_value"]}}</td>
+        <td>{{incident["penalty"]}}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+<html>

@@ -1,0 +1,79 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    org.edgexfoundry.service: {{.Values.edgex.app.exporter.fledge}}
+  name: {{.Values.edgex.app.exporter.fledge}}
+spec:
+  replicas: {{.Values.edgex.replicas.exporter.fledge}}
+  selector:
+    matchLabels:
+      org.edgexfoundry.service: {{.Values.edgex.app.exporter.fledge}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        org.edgexfoundry.service: {{.Values.edgex.app.exporter.fledge}}
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: {{.Values.edgex.app.exporter.fledge}}
+        image: {{.Values.edgex.image.exporter.fledge.repository}}:{{.Values.edgex.image.exporter.fledge.tag}}
+        imagePullPolicy: {{.Values.edgex.image.exporter.fledge.pullPolicy}}
+      {{- if .Values.edgex.security.enabled }}
+        command: ["/edgex-init/ready_to_run_wait_install.sh"]
+        args: ["/device-mqtt", "-cp=consul.http://edgex-core-consul:8500", "--registry", "--confdir=/res"]
+      {{- end}}
+        env:
+        - name: SERVICE_HOST
+          value: {{.Values.edgex.app.exporter.fledge}}
+        envFrom:
+        - configMapRef:
+            name: edgex-common-variables
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: configmap
+          mountPath: /res   
+      {{- if .Values.edgex.security.enabled }}                   
+        - mountPath: /edgex-init  
+          name: edgex-init
+        - mountPath: /tmp/edgex/secrets
+          name: edgex-secrets
+      {{- end }}
+      {{- if .Values.edgex.resources.exporter.fledge.enforceLimits }}
+        resources:
+          limits:
+            memory: {{ .Values.edgex.resources.exporter.fledge.limits.memory }}
+            cpu: {{ .Values.edgex.resources.exporter.fledge.limits.cpu }}
+          requests:
+            memory: {{ .Values.edgex.resources.exporter.fledge.requests.memory }}
+            cpu: {{ .Values.edgex.resources.exporter.fledge.requests.cpu }}
+      {{- end}}
+      hostname: {{.Values.edgex.app.exporter.fledge}}
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: {{ .Values.edgex.security.runAsUser }}
+        runAsGroup: {{ .Values.edgex.security.runAsGroup }}
+      volumes:
+      - name: configmap
+        configMap:
+          name: edgex-exporter-fledge-configmap
+          items:
+          - key: configuration.toml
+            path: configuration.toml
+    {{- if .Values.edgex.security.enabled }}
+      - name: edgex-init
+        persistentVolumeClaim:
+          claimName: edgex-init
+      - name: edgex-secrets
+        persistentVolumeClaim:
+          claimName: edgex-secrets
+    {{- end}}

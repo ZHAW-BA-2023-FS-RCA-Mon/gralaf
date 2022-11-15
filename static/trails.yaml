@@ -1,0 +1,49 @@
+tosca_definitions_version : tosca_simple_yaml_1_2
+description: TOSCA manifest profile
+imports: 
+ - Manifest_type.yaml
+
+topology_template:
+  
+  node_templates:
+    
+    manifest:
+      type: tosca.nodes.nfv.manifest
+      properties:
+        header:
+          title: vFirewall's TRAILS
+          lead_author:
+            name: Orange FR
+            role: Operator
+            country: France
+          version: "1.0"
+          url: https://www.newCompenentClassDescriptor.com
+          component_type: VNF
+          system_info : Virual Firewall 
+          model: "SRX Series"
+        authors : 
+          - name: Capgemini
+            role: Validator
+            country: France
+          - name : "VSRX-Juniper"
+            role : "Manufacturer"
+            country : "BALGIUM"
+            url : "https://www.VSRX-Juniper.io"
+          - name: Orange FR
+            role: Operator
+            country: France
+        validations:
+          - author:
+              name: Capgemini
+              role: Validator
+              country: France
+            last_validation: '2021-01-19 03:14:07'
+            validation_score: 'high'
+        property_description:
+          - $ref : '../Files/VSRX-JuniperProperty.yaml#/property_description'
+        usage_description:
+          - $ref : '../Files/VSRX-JuniperUsageDescription.yaml#/usage_description'
+      requirements:
+         $ref : '../Files/VSRX-JuniperUsageDescription.yaml#/recommended_securities_services'
+      capabilities : 
+         $ref : '../Files/VSRX-JuniperProperty.yaml#/exposed_securities_services'

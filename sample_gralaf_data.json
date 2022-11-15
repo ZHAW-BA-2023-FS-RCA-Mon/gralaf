@@ -1,0 +1,110 @@
+{
+  "violation_details": {
+    "violation_time": "2022-10-25 13:57:44",
+    "violation_type": "availability",
+    "expected_value": {
+      "min": 0.99,
+      "max": 1.0
+    },
+    "reported_value": 0.5,
+    "contract_info": {
+      "service": "edgex-core-command",
+      "responsible_provider": "SP3"
+    }
+  },
+  "root_causes": [
+    {
+      "service_name": "edgex_core_command",
+      "probability": 0.8266383489483734,
+      "fault_distribution": {
+        "0": 0.173,
+        "1": 0.282,
+        "3": 0.044,
+        "4": 0.5
+      }
+    },
+    {
+      "service_name": "edgex_exporter_fledge",
+      "probability": 0.07263382346754887,
+      "fault_distribution": {
+        "0": 0.927,
+        "1": 0.05,
+        "3": 0.012,
+        "4": 0.011
+      }
+    },
+    {
+      "service_name": "edgex_ui",
+      "probability": 0.03118294145868661,
+      "fault_distribution": {
+        "0": 0.969,
+        "1": 0.01,
+        "3": 0.01,
+        "4": 0.012
+      }
+    },
+    {
+      "service_name": "edgex_mqtt_broker",
+      "probability": 0.0289179592465858,
+      "fault_distribution": {
+        "0": 0.971,
+        "1": 0.011,
+        "3": 0.007,
+        "4": 0.011
+      }
+    },
+    {
+      "service_name": "edgex_core_metadata",
+      "probability": 0.021669934778383082,
+      "fault_distribution": {
+        "0": 0.978,
+        "1": 0.004,
+        "3": 0.009,
+        "4": 0.009
+      }
+    },
+    {
+      "service_name": "edgex_device_mqtt",
+      "probability": 0.018655472799745554,
+      "fault_distribution": {
+        "0": 0.981,
+        "1": 0.004,
+        "3": 0.007,
+        "4": 0.008
+      }
+    },
+    {
+      "service_name": "edgex_redis",
+      "probability": 0.006658757913827862,
+      "fault_distribution": {
+        "0": 0.993,
+        "1": 0.002,
+        "3": 0.004,
+        "4": 0.001
+      }
+    }
+  ],
+  "violation_evidence": {
+    "latency_edgex_device_mqtt_edgex_core_metadata": 0,
+    "latency_edgex_core_command_edgex_device_mqtt": 1,
+    "latency_edgex_ui_edgex_core_command": 1,
+    "latency_edgex_ui_edgex_core_metadata": 0,
+    "latency_edgex_core_metadata_edgex_device_mqtt": 0,
+    "latency_edgex_core_command_edgex_core_metadata": 0,
+    "availability_edgex_redis": 0,
+    "memory_edgex_redis": 0,
+    "availability_edgex_core_metadata": 0,
+    "memory_edgex_core_metadata": 0,
+    "availability_edgex_device_mqtt": 0,
+    "memory_edgex_device_mqtt": 0,
+    "availability_edgex_ui": 0,
+    "memory_edgex_ui": 0,
+    "availability_edgex_exporter_fledge": 0,
+    "memory_edgex_exporter_fledge": 0,
+    "availability_edgex_mqtt_broker": 0,
+    "memory_edgex_mqtt_broker": 0,
+    "availability_edgex_core_command": 1,
+    "memory_edgex_core_command": 0
+  },
+  "root_cause_analysis_time": "11/10/2022 19:33:54"
+}

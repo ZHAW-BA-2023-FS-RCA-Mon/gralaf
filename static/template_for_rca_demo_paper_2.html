@@ -1,0 +1,127 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Incident Service</title>
+    <style>
+        body {
+  font-family: Helvetica, sans-serif;
+}
+h1 {
+  font-size:2em;
+  font-weight: 300;
+  line-height:1em;
+  color: #009900;
+}
+.service-provider{
+    text-align: center;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009900;
+    color: #ffffff;
+    text-align: center;
+}
+.styled-table th {
+    padding: 4px 12px;
+    width: 60px;
+}
+.styled-table td {
+    padding: 2px 6px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009900;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009900;
+}
+    </style>
+</head>
+<body>
+<h1><img style="width:0.9em" src="/favicon.ico" alt="INSPIRE-5Gplus"> Incident Liability Report</h1>
+<table class="styled-table">
+    <thead>
+    <tr><th>Violation Time (UTC)</th>
+    <th>Violation Type</th>
+    <th>Expected Value</th>
+    <th>Reported Value</th>
+    <th>Service Provider</th>
+    <th>Service Name</th>
+    <th>Failure probability</th>
+    <th>Details</th>
+    </tr></thead>
+    <tbody>
+    
+    <tr>
+        <td rowspan="6">11/10/2022, 09:45:19</td>
+        <td rowspan="6" style="text-align: center;">MAX_SERVICE_DELAY</td>
+        <td rowspan="6" style="text-align: center;">150</td>
+        <td rowspan="6" style="text-align: center;">435</td>
+        <td class="service-provider">SP1</td>
+        <td>edgex_core_data</td>
+        <td style="text-align: center;">94.15%</td>
+        <td rowspan="6">latency_edgex_core_command_edgex_core_metadata:0<br>latency_edgex_ui_edgex_core_metadata:0<br>latency_edgex_device_mqtt_edgex_core_metadata:0<br>latency_edgex_ui_edgex_core_command:0<br>latency_edgex_core_metadata_edgex_device_mqtt:0<br>latency_edgex_ui_edgex_core_data:2<br>cpu_edgex_device_rest:0<br>cpu_edgex_redis:1<br>cpu_edgex_device_mqtt:0<br>cpu_edgex_ui:0<br>cpu_edgex_core_metadata:0<br>cpu_edgex_device_virtual:0<br>cpu_edgex_exporter_fledge:0<br>cpu_edgex_core_data:1<br>cpu_edgex_core_command:0<br>cpu_edgex_mqtt_broker:0</td>
+
+    </tr>
+
+    <tr>
+<!--        <td></td>-->
+        <!--        <td></td>-->
+        <td class="service-provider">SP4</td>
+        <td>edgex_ui</td>
+        <td style="text-align: center;">9.17%</td>
+    </tr>
+
+<!--        <td></td>-->
+        <!--        <td></td>-->
+        <td class="service-provider">SP1</td>
+        <td>edgex_core_metadata</td>
+        <td style="text-align: center;">6.85%</td>
+    </tr>
+    
+    <tr>
+<!--        <td></td>-->
+        <!--        <td></td>-->
+        <td class="service-provider">SP2</td>
+        <td>edgex_redis</td>
+        <td style="text-align: center;">5.23%</td>
+    </tr>
+    <tr>
+<!--        <td></td>-->
+        <!--        <td></td>-->
+        <td class="service-provider">SP1</td>
+        <td>edgex_core_command</td>
+        <td style="text-align: center;">2.43%</td>
+    </tr>
+    <tr>
+<!--        <td></td>-->
+        <!--        <td></td>-->
+        <td class="service-provider">SP3</td>
+        <td>edgex_device_mqtt</td>
+        <td style="text-align: center;">0.95%</td>
+    </tr>
+    
+
+    
+    
+    <tr>
+    </tr>
+    
+    </tbody>
+</table>
+
+</body></html>

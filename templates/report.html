@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>LASM Mockup Service</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='incident.css') }}">
+</head>
+<body>
+<h1>LASM Mockup Service</h1>
+<h2>Liability Reports</h2>
+<table class="container">
+    <thead>
+    <th>Time</th>
+    <th>Service Provider</th>
+    <th>Service Name</th>
+    <th>Failure probability</th>
+    <th>Possible Penalty</th>
+    <th>Details</th>
+    </thead>
+    <tbody>
+    {% for report in reports %}
+    <tr>
+        <td rowspan={{report["results"]|length}}>{{report["time"]}}</td>
+        <td>{{report["results"][0]["responsible_provider"]}}</td>
+        <td>{{report["results"][0]["service_name"]}}</td>
+        <td>{{report["results"][0]["probability"]}}</td>
+        <td>{{report["results"][0]["penalty"]}}</td>
+        <td rowspan={{report["results"]|length}}>{{report["metrics"]| safe}}</td>
+
+    </tr>
+    {% for result in report["results"][1:] %}
+    <tr>
+<!--        <td></td>-->
+        <!--        <td></td>-->
+        <td>{{result["responsible_provider"]}}</td>
+        <td>{{result["service_name"]}}</td>
+        <td>{{result["probability"]}}</td>
+        <td>{{result["penalty"]}}</td>
+    </tr>
+    {% endfor %}
+    </tr>
+    <tr>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+<html>

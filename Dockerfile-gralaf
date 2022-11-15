@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y python3-pip python3-dev pkg-config graphviz-dev
+
+RUN /usr/bin/python3 -m pip install --upgrade pip && \
+    pip install pygraphviz
+RUN pip install -r requirements-gralaf.txt
+
+RUN mkdir dataset
+
+ADD config.yaml .
+ADD cbn_based_rca.py .
+ADD generate_cbn.py .
+ADD anomaly_detection.py .
+ADD causal_test-from-archive.py .
+ADD chaos_mesh_utils.py .
+ADD requirements-gralaf.txt .
+
+CMD ["python3", "./cbn_based_rca.py"]

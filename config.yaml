@@ -1,0 +1,50 @@
+prometheus_url: http://127.0.0.1:32090/api/v1/query
+lasm_server_urls:
+  - "http://127.0.0.1:5001"
+trails_server_urls:
+  - "http://127.0.0.1:5001"
+
+step_interval: 15
+number_of_training_data: 138
+#number_of_test_data: 36
+#number_of_test_data: 24
+number_of_test_data: 41
+number_of_test_false_positive_data: 24
+number_of_initial_steps: 30
+number_of_concurrent_faults: 2
+use_archive: true
+test_false_positive: true
+output_folder: results_with_7_services
+training_data:
+  - dataset_v6/training_data_20221101-194735.csv
+test_data:
+  - dataset_v4/training_data_20221025-140923.csv
+
+
+
+
+min_number_of_edges_per_node: 5
+weak_link_threshold: 0.05
+services_for_fault_injection:
+  - edgex-core-data
+  - edgex-core-command
+  - edgex-ui
+  - edgex-core-metadata
+  - edgex-device-mqtt
+  - edgex-redis
+  - edgex-mqtt-broker
+  - edgex-exporter-fledge
+services_skipped:
+  - edgex-device-rest
+  - edgex-core-consul
+  - edgex-device-virtual
+  - edgex-app-rules-engine
+  - edgex-sys-mgmt-agen
+  - edgex-kuiper
+  - edgex-support-notifications
+  - edgex-support-scheduler
+metrics_skipped:
+  - cpu
+  - error
+experiments_skipped:
+  cpu: 2

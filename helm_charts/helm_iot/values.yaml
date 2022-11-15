@@ -1,0 +1,65 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# Default values for GRALAF.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+expose:
+  # Option value: ClusterIP/NodePort/LoadBalancer
+  type: ClusterIP
+gralaf:
+  app:
+    mqttClient: iot-device
+
+  # image defines configuration properties for docker-image-level concerns
+  image:
+    mqttClient:
+      repository: localhost:32000/mqtt-client
+      tag: "0.0.3"
+      pullPolicy: Always
+
+  # port defines configuration properties for container, target and host ports
+  port:
+    gralaf: 25001
+    mqttClient: 25002
+    lasmServer: 25003
+    loadGenerator: 25004
+
+
+  # Duplicate default IP binding choice of docker-compose
+  hostPortInternalBind: 127.0.0.1
+  hostPortExternalBind: 0.0.0.0
+
+  # replicas defines the number of replicas in a Deployment for the respective application
+  replicas:
+    mqttClient: 25
+
+
+  # UID/GID for container user
+  security:
+    enabled: false
+    runAsUser: 2002
+    runAsGroup: 2001
+    tlsHost: gralaf
+
+
+  # resources defines the cpu and memory limits and requests for the respective application
+  resources:
+    gralaf:
+    mqttClient:
+      command:
+        enforceLimits: true
+        limits:
+          cpu: 1
+          memory: 128Mi
+        requests:
+          cpu: 0.05
+          memory: 32Mi
+
+
+
+  storage:
+    className: ""
+

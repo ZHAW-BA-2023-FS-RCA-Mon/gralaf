@@ -1,0 +1,86 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Incident Service</title>
+    <style>
+        body {
+  font-family: Helvetica, sans-serif;
+}
+h1 {
+  font-size:2em;
+  font-weight: 300;
+  line-height:1em;
+  color: #009900;
+}
+.service-provider{
+    text-align: center;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009900;
+    color: #ffffff;
+    text-align: center;
+}
+.styled-table th {
+    padding: 4px 12px;
+    width: 60px;
+}
+.styled-table td {
+    padding: 2px 6px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009900;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009900;
+}
+    </style>
+</head>
+<body>
+<h1><img style="width:2.5em;  vertical-align: middle;" src="{{url_for('static', filename='inspire-5g.png')}}" alt="INSPIRE-5Gplus"> Incident Report    <span style="padding-top: 10px;margin-left: 7.5em">GRALAF</span></h1>
+<table class="styled-table">
+    <thead>
+    <tr><th>Violation Time (UTC)</th>
+    <th>Violation Type</th>
+    <th>Expected Value</th>
+    <th>Reported Value</th>
+    <th>Service Provider</th>
+    <th>Service Name</th>
+    </tr></thead>
+    <tbody>
+    
+    <tr>
+        <td >23/10/2022, 16:05:00</td>
+        <td style="text-align: center;">MAX_SERVICE_DELAY</td>
+        <td style="text-align: center;">100</td>
+        <td style="text-align: center;">2654</td>
+        <td class="service-provider">SP1</td>
+        <td>edgex_core_data</td>
+    </tr>
+
+    
+
+    
+    
+    <tr>
+    </tr>
+    
+    </tbody>
+</table>
+
+</body></html>

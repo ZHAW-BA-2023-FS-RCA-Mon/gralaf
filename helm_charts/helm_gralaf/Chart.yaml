@@ -1,0 +1,21 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: v1
+name: gralaf
+version: 2.1.0
+appVersion: "first"
+description: A Helm Chart for GRALAF
+keywords:
+- Docker
+- gralaf
+home: https://www.inspire-5gplus.eu
+icon: https://www.inspire-5gplus.eu/wp-content/uploads/2022/07/inspire-5gplus-logo-mobile-1.png?x41171
+sources:
+- https://github.zhaw.ch/kalo/gralaf
+maintainers:
+- name: Onur Kalinagac
+  email: kalo@zhaw.ch
+engine: gotpl
+
