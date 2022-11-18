@@ -11,20 +11,23 @@ expose:
   type: ClusterIP
 gralaf:
   app:
-    mqttClient: iot-device
+    gralaf: gralaf
+    loadGenerator: load-generator
 
   # image defines configuration properties for docker-image-level concerns
   image:
-    mqttClient:
-      repository: localhost:32000/mqtt-client
+    gralaf:
+      repository: localhost:32000/gralaf
+      tag: "0.0.1"
+      pullPolicy: IfNotPresent
+    loadGenerator:
+      repository: localhost:32000/load-generator
       tag: "0.0.3"
       pullPolicy: Always
 
   # port defines configuration properties for container, target and host ports
   port:
     gralaf: 25001
-    mqttClient: 25002
-    lasmServer: 25003
     loadGenerator: 25004
 
 
@@ -34,8 +37,10 @@ gralaf:
 
   # replicas defines the number of replicas in a Deployment for the respective application
   replicas:
-    mqttClient: 25
-
+    gralaf: 1
+    mqttClient: 0
+    lasmServer: 1
+    loadGenerator: 1
 
   # UID/GID for container user
   security:
@@ -48,16 +53,23 @@ gralaf:
   # resources defines the cpu and memory limits and requests for the respective application
   resources:
     gralaf:
-    mqttClient:
       command:
         enforceLimits: true
         limits:
           cpu: 1
-          memory: 128Mi
+          memory: 512Mi
         requests:
           cpu: 0.05
           memory: 32Mi
-
+    loadGenerator:
+      command:
+        enforceLimits: true
+        limits:
+          cpu: 1
+          memory: 512Mi
+        requests:
+          cpu: 0.05
+          memory: 32Mi
 
 
   storage:

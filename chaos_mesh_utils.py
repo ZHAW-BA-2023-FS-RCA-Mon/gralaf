@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 chaos_mesh_experiments = {}
 session = requests.Session()
 NAMESPACE = "edgex"
-chaos_mesh_address = "http://127.0.0.1:30568"
+chaos_mesh_address = "http://160.85.252.70:30568"
 
 
 def archive_chaos_experiment(experiment_name, experiment_id):

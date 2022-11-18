@@ -14,7 +14,7 @@ from locust.env import Environment
 
 from data import device_event
 
-TARGET_ADDRESS = "http://127.0.0.1:30880"
+TARGET_ADDRESS = "http://160.85.252.70:30880"
 THREAD_NUMBER = 100
 DEVICE_NUMBER = 1
 DEVICE_NAME_PREFIX = "iot-device"
