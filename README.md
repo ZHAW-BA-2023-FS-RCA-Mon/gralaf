@@ -2,7 +2,7 @@
 
 -----------------------------------------
 
-GRALAF tracks metrics and compares them with the given Service Level Agreement (SLA) data from TRAILS. 
+GRALAF [[1]](#1) tracks metrics and compares them with the given Service Level Agreement (SLA) data from TRAILS. 
 
 In the case of an SLA violation, it performs RCA based on CBN and reports to an external liability service about the corresponding violation with the estimated probability of fault types for each service being responsible for the incident. 
 
@@ -33,3 +33,6 @@ Certificate Name: fledge
 
 The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8GB RAM, and 160GB SSD storage.<br />
 For VM4 and VM5, each has 1 vCPU, 2GB RAM, and 120GB SSD.
+
+
+<a id="1">[1]</a>  O. Kalinagac, W. Soussi, Yacine Anser, Chrystel Gaber, and G. Gür, "Root Cause and Liability Analysis in the Microservices Architecture for Edge IoT Services," [In progress]
