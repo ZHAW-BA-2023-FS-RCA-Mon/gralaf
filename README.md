@@ -15,11 +15,11 @@ It is developed in Python and can be deployed in the same Kubernetes environment
 We utilized five VMs for the entire test setup in an OpenStack cloud infrastructure.
 
 Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and GRALAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
-These services can be deployed with the helm charts available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure)
+These services can be deployed with the helm charts available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
 
 VM4 hosted another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart
 
-VM5 hosted Fledge server. You may follow the official [page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we also added a *http_south* service with the following configurations:
+VM5 hosted Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we also added a *http_south* service with the following configurations:
 ```
 Host: 0.0.0.0
 Port: 6683
