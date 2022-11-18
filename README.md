@@ -10,5 +10,5 @@ It is developed in Python and can be deployed in the same Kubernetes environment
 
 ## :wrench: Deployment
 
-<img src="images/useCase.drawio_v2.png" alt="drawing"/>
+<img src="images/useCase.png" alt="use case"/>
 
