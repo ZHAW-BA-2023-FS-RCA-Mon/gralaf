@@ -22,7 +22,7 @@ gralaf:
       pullPolicy: IfNotPresent
     loadGenerator:
       repository: localhost:32000/load-generator
-      tag: "0.0.3"
+      tag: "0.0.1"
       pullPolicy: Always
 
   # port defines configuration properties for container, target and host ports

@@ -17,8 +17,13 @@ gralaf:
   image:
     mqttClient:
       repository: localhost:32000/mqtt-client
-      tag: "0.0.3"
+      tag: "0.0.1"
       pullPolicy: Always
+
+  # Edgex server MQTT broker information
+  edgexServer:
+    address: "10.0.2.44"
+    port: "30883"
 
   # port defines configuration properties for container, target and host ports
   port:

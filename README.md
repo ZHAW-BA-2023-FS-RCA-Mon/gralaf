@@ -10,14 +10,14 @@ It is developed in Python and can be deployed in the same Kubernetes environment
 
 ## :wrench: Deployment
 
-<img src="images/useCase.png" alt="use case"/>
+<img src="images_for_git/useCase.png" alt="use case"/>
 
 We utilized five VMs for the entire test setup in an OpenStack cloud infrastructure.
 
 Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and GRALAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
 These services can be deployed with the helm charts available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
 
-VM4 hosted another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart
+VM4 hosted another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart.
 
 VM5 hosted Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we also added a *http_south* service with the following configurations:
 ```
@@ -28,6 +28,47 @@ Asset Name Prefix: edgex-
 Enable: HTTP
 HTTPS Port: 6684
 Certificate Name: fledge
+```
+
+
+Following deployment is valid for Ubuntu 22.04.
+
+On all machines you want to have a cluster, install MicroK8s with 
+- ```sudo snap install microk8s --classic```
+
+
+Run `microk8s add-node` on the first VM which is going to be master node and follow the printed instructions. 
+Note: You may need to add the ip address-hostname pair to /etc/hosts for the master node. Example /etc/hosts  file:
+```
+127.0.0.1 localhost
+127.0.1.1 vm1
+10.0.11.13 vm2
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
+
+- On master node, activate add-ons with
+  - ```microk8s enable istio```
+  - ```microk8s enable community```
+
+In order to use kubectl instead of microk8s.kubectl: 
+- ```sudo snap alias microk8s.kubectl kubectl```
+
+### Building the containers
+The microK8's local repository can be activated with the following command so that we can upload our locally build containers. 
+```microk8s enable registry```
+
+
+
+Then, the following commands can be used to build a docker image and upload it to the microK8's local repository
+```
+docker build -f Dockerfile-gralaf -t localhost:32000/load-generator:0.0.3 .
+docker push localhost:32000/load-generator:0.0.3
 ```
 
 

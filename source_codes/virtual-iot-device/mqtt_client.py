@@ -9,7 +9,7 @@ import time
 import paho.mqtt.client as mqtt
 
 DEVICE_NAME = ""
-MQTT_SERVER_IP = "160.85.252.70"
+MQTT_SERVER_IP = ""
 MQTT_SERVER_PORT = "30883"
 COMMAND_TOPIC = "CommandTopic"
 RESPONSE_TOPIC = "ResponseTopic"
