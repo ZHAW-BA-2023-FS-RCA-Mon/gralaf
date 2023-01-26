@@ -36,7 +36,9 @@ spec:
           readOnlyRootFilesystem: true
         volumeMounts:
         - name: configmap
-          mountPath: /res   
+          mountPath: /res
+        - name: dataset
+          mountPath: /dataset
       {{- if .Values.gralaf.resources.gralaf.enforceLimits }}
         resources:
           limits:
@@ -59,3 +61,6 @@ spec:
           items:
           - key: configuration.yaml
             path: configuration.yaml
+      - name: dataset
+        persistentVolumeClaim:
+          claimName: gralaf-dataset

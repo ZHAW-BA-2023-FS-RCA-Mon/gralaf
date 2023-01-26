@@ -9,7 +9,7 @@ import yaml
 
 from anomaly_detection import discretize
 from data_manipulation import remove_columns_with_single_value, filter_data, \
-    fill_empty_cells_with_ground_truth_data, remove_columns_with_small_effect, remove_columns_with_unstable_output
+    remove_majorly_empty_columns, remove_columns_with_small_effect, remove_columns_with_unstable_output
 from models.trained_model import TrainedModel
 
 # import bnlearn as bn
@@ -101,33 +101,18 @@ def train_model(config):
     training_data = filter_data(config, training_data)
     training_data.pop("timestamp")
     training_data.columns = training_data.columns.str.replace('-', '_')
-    training_data, mean_ground_truth_values = fill_empty_cells_with_ground_truth_data(training_data, config[
+    training_data, mean_ground_truth_values = remove_majorly_empty_columns(training_data, config[
         "number_of_initial_steps"])
     training_data = remove_columns_with_single_value(training_data)
     anomaly_states_by_metric, clustering_instances, sort_indices, normalization_factors = \
         discretize(training_data, base_data_size=config["number_of_initial_steps"])
     remove_columns_with_small_effect(training_data, anomaly_states_by_metric)
     remove_columns_with_unstable_output(training_data, anomaly_states_by_metric, config["number_of_initial_steps"])
-    # new_columns = []
-    # for metric, metric_index in sort_indices.items():
-    #     if len(metric_index) > 2:
-    #         new_columns.extend([f"{metric}_{i + 2}" for i in range(len(metric_index) - 2)])
-    # for new_column in new_columns:
-    #     training_data[new_column] = 0
-    # logger.info(f"Columns generated: {new_columns}")
+
     for metric, states in anomaly_states_by_metric.items():
         for step_no, state in enumerate(states):
             training_data.loc[step_no, metric] = state
-            # if metric.startswith("edgex") or state <= 1:
-            #     training_data.loc[step_no, metric] = state
-            # else:
-            #     for i in range(state):
-            #         if i == 0:
-            #             training_data.loc[step_no, metric] = 1
-            #         else:
-            #             training_data.loc[step_no, f"{metric}_{i + 1}"] = 1
     training_data = training_data.astype('int32')
-    # training_data = make_service_columns_binary(training_data)
     training_data = remove_columns_with_single_value(training_data)
 
     logger.info(f"Shape of data: {training_data.shape}")

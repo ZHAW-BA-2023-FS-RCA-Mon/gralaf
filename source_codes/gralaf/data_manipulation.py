@@ -1,4 +1,5 @@
 import logging
+import math
 
 import numpy as np
 import pandas as pd
@@ -6,6 +7,10 @@ from pandas import Series
 
 logger = logging.getLogger(__name__)
 removed_columns = set()
+
+INSIGNIFICANCE_THRESHOLD = 0.98
+RELIABILITY_THRESHOLD = 0.7
+AVAILABILITY_THRESHOLD = 0.3
 
 
 def make_service_columns_binary(training_data):
@@ -51,7 +56,7 @@ def remove_columns_with_small_effect(given_dataframe, anomaly_states_by_metric):
         median_occurrence = np.count_nonzero(states == median_value)
         data_size = given_dataframe.shape[0]
         median_ratio = median_occurrence / data_size
-        if median_ratio > 0.98:
+        if median_ratio > INSIGNIFICANCE_THRESHOLD:
             columns_to_remove.append(metric)
             logger.info(f"This metric will be removed since it has small effect"
                         f"(Median ratio: {median_ratio:.2f}): {metric}")
@@ -67,7 +72,7 @@ def remove_columns_with_unstable_output(given_dataframe, anomaly_states_by_metri
         median_occurrence = np.count_nonzero(states[:number_of_initial_steps] == median_value)
         data_size = states[:number_of_initial_steps].shape[0]
         median_ratio = median_occurrence / data_size
-        if median_ratio < 0.7:
+        if median_ratio < RELIABILITY_THRESHOLD:
             columns_to_remove.append(metric)
             logger.info(f"This metric will be removed since it has unstable output"
                         f"(Median ratio: {median_ratio:.2f}): {metric}")
@@ -146,12 +151,12 @@ def filter_data(config, given_dataframe):
     return given_dataframe
 
 
-def fill_empty_cells_with_ground_truth_data(all_dataframe, ground_truth_data_size=30):
+def remove_majorly_empty_columns(all_dataframe, ground_truth_data_size=30):
     mean_ground_truth_values = {}
     for column in all_dataframe.columns.copy():
         number_of_empty_rows_in_ground_truth = all_dataframe.head(ground_truth_data_size)[column].isna().sum()
         number_of_empty_rows_totally = all_dataframe[column].isna().sum()
-        if number_of_empty_rows_in_ground_truth > ground_truth_data_size * 0.7:
+        if number_of_empty_rows_in_ground_truth > ground_truth_data_size * (1 - AVAILABILITY_THRESHOLD):
             logger.info(
                 f"Removing {column} since it has {number_of_empty_rows_in_ground_truth} empty results in ground truth "
                 f"and {number_of_empty_rows_totally} in overall")
@@ -163,9 +168,16 @@ def fill_empty_cells_with_ground_truth_data(all_dataframe, ground_truth_data_siz
         column_mean_value = all_dataframe.head(ground_truth_data_size)[column].mean()
         mean_ground_truth_values[column] = column_mean_value
         num_of_empty_cells = all_dataframe[column].isna().sum()
-        logger.info(f"Filling {num_of_empty_cells} cells of column {column} with {column_mean_value}")
+        if num_of_empty_cells != 0:
+            logger.info(f"Filling {num_of_empty_cells} cells of column {column} with {column_mean_value}")
         all_dataframe[column].fillna(column_mean_value, inplace=True)
     return all_dataframe, mean_ground_truth_values
+
+
+def fill_empty_cells_with_ground_truth_data(given_row, mean_ground_truth_values):
+    for column in given_row.index:
+        if column in mean_ground_truth_values and math.isnan(given_row[column]):
+            given_row[column] = mean_ground_truth_values[column]
 
 
 def filter_columns_by_inference_engine(given_data, inference_engine):
@@ -174,3 +186,21 @@ def filter_columns_by_inference_engine(given_data, inference_engine):
         if column not in inference_engine._cpds:
             partial_data.pop(column)
     return partial_data
+
+
+def filter_and_fill_with_ground_truth_data(given_dataframe, mean_ground_truth_values):
+    indices_to_remove = []
+
+    last_metrics = given_dataframe.iloc[-1].copy()
+    for column in last_metrics.index:
+        if column != "timestamp" and math.isnan(last_metrics[column]):
+            if column in mean_ground_truth_values:
+                last_metrics[column] = mean_ground_truth_values[column]
+            else:
+                indices_to_remove.append(column)
+        elif column.startswith("edgex"):
+            indices_to_remove.append(column)
+    last_metrics.drop(index=indices_to_remove, inplace=True)
+    last_metrics["timestamp"] = last_metrics["timestamp"].strftime('%Y-%m-%d %H:%M:%S')
+
+    return last_metrics

@@ -3,7 +3,6 @@ import logging
 import numpy as np
 from sklearn.mixture import BayesianGaussianMixture
 
-SMOOTHING_WINDOW = 12
 BIRCH_AD_THRESHOLD = 0.1  # 0.045
 CLUSTER_NUMBER = 3
 # BIRCH_AD_THRESHOLD = {"latency": 25, "memory": 100, "cpu": 10}
@@ -144,7 +143,7 @@ def discretize(metric_data, birch_threshold=BIRCH_AD_THRESHOLD, base_data_size=3
                 result_distribution[result] = [metric_readings[index]]
 
         n_clusters = np.unique(prediction_results).size
-        logger.info(f"{metric}: size={n_clusters}")
+        logger.debug(f"{metric}: size={n_clusters}")
         for cluster_id, cluster_values in result_distribution.items():
             min_value, max_value = (round(min(cluster_values), 2), round(max(cluster_values), 2))
             if min_value == max_value:
@@ -157,7 +156,7 @@ def discretize(metric_data, birch_threshold=BIRCH_AD_THRESHOLD, base_data_size=3
             value_counter = {value: rounded_values.count(value) for value in unique_values}
             # logger.info(
             #     f"{cluster_id}:({range_text}) {[round(i, 2) for i in cluster_values]}")
-            logger.info(
+            logger.debug(
                 f"{cluster_id}<{len(cluster_values)}>:({range_text}) {value_counter}")
         prediction_results, sort_index = relabel_cluster_ids_by_value(result_distribution, prediction_results,
                                                                       is_reverse=is_reverse)
@@ -166,7 +165,7 @@ def discretize(metric_data, birch_threshold=BIRCH_AD_THRESHOLD, base_data_size=3
             pairs += f"{round(float(metric_readings[i]), 2)}|{prediction_results[i]}\t"
             if i % 10 == 9:
                 pairs += "\n"
-        logger.info(pairs)
+        logger.debug(pairs)
         anomaly_states_by_metric[metric] = prediction_results
         clustering_instances[metric] = brc
         sort_indices[metric] = sort_index

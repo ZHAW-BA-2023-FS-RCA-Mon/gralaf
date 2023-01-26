@@ -1,24 +1,27 @@
-prometheus_url: http://127.0.0.1:32090/api/v1/query
+reporting_identifier: cluster_0
+prometheus_url: http://prometheus.istio-system.svc.cluster.local:9090
 lasm_server_urls:
-  - "http://127.0.0.1:5001"
+  - "http://lasm-server.gralaf.svc.cluster.local:5001"
+#  - "http://127.0.0.1:32002"
+#  - "http://127.0.0.1:5001"
 trails_server_urls:
-  - "http://127.0.0.1:5001"
+#  - "http://127.0.0.1:32002"
+  - "http://lasm-server.gralaf.svc.cluster.local:5001"
+#  - "http://127.0.0.1:5001"
 
-step_interval: 15
-number_of_training_data: 138
-#number_of_test_data: 36
-#number_of_test_data: 24
+step_interval: 10
+number_of_training_data: 50
 number_of_test_data: 41
 number_of_test_false_positive_data: 24
 number_of_initial_steps: 30
-number_of_concurrent_faults: 2
-use_archive: true
+number_of_concurrent_faults: 1
+use_archive: false
 test_false_positive: true
-output_folder: results_with_7_services
+output_folder: results
 training_data:
-  - dataset_v6/training_data_20221101-194735.csv
+#  - dataset_v6/training_data_20221101-194735.csv
 test_data:
-  - dataset_v4/training_data_20221025-140923.csv
+#  - dataset_v4/training_data_20221025-140923.csv
 
 
 
@@ -48,3 +51,7 @@ metrics_skipped:
   - error
 experiments_skipped:
   cpu: 2
+
+log_level: "INFO"
+time_format: '%H:%M:%S'
+logging_format: "%(asctime)s.%(msecs)03d-> %(message)s"

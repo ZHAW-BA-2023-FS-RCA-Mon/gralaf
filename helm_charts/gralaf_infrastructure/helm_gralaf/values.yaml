@@ -12,6 +12,7 @@ expose:
 gralaf:
   app:
     gralaf: gralaf
+    lasmServer: lasm-server
     loadGenerator: load-generator
 
   # image defines configuration properties for docker-image-level concerns
@@ -20,6 +21,10 @@ gralaf:
       repository: localhost:32000/gralaf
       tag: "0.0.1"
       pullPolicy: IfNotPresent
+    lasmServer:
+      repository: localhost:32000/lasm-server
+      tag: "0.0.1"
+      pullPolicy: Always
     loadGenerator:
       repository: localhost:32000/load-generator
       tag: "0.0.1"
@@ -28,6 +33,8 @@ gralaf:
   # port defines configuration properties for container, target and host ports
   port:
     gralaf: 25001
+    mqttClient: 25002
+    lasmServer: 5001
     loadGenerator: 25004
 
 
@@ -38,7 +45,6 @@ gralaf:
   # replicas defines the number of replicas in a Deployment for the respective application
   replicas:
     gralaf: 1
-    mqttClient: 0
     lasmServer: 1
     loadGenerator: 1
 
@@ -53,6 +59,15 @@ gralaf:
   # resources defines the cpu and memory limits and requests for the respective application
   resources:
     gralaf:
+      command:
+        enforceLimits: true
+        limits:
+          cpu: 2
+          memory: 4096Mi
+        requests:
+          cpu: 0.5
+          memory: 256Mi
+    lasmServer:
       command:
         enforceLimits: true
         limits:
@@ -74,4 +89,3 @@ gralaf:
 
   storage:
     className: ""
-

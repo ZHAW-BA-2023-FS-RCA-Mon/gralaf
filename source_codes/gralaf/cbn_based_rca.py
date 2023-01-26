@@ -3,7 +3,6 @@
 
 import argparse
 import logging
-import math
 import random
 import time
 
@@ -13,6 +12,8 @@ import yaml
 
 from chaos_mesh_utils import get_chaos_experiments, add_chaos_mesh_experiment_delay, \
     add_chaos_mesh_experiment_cpu, add_chaos_mesh_experiment_failure, add_chaos_mesh_experiment_memory
+from data_manipulation import fill_empty_cells_with_ground_truth_data
+from lasm_utils import send_metrics
 from metric import get_response_times, get_request_error_rates, get_metric_services
 
 # MAX_NUMBER_OF_CONCURRENT_FAULT_INJECTIONS = 1
@@ -61,15 +62,13 @@ def wait_rest_of_interval_time(start_time, interval_time):
         time.sleep(start_time + interval_time - end_time)
 
 
-def store_metrics_to_files(dataframe_to_save, file_name_postfix=""):
-    if file_name_postfix:
-        file_name_postfix = "_" + file_name_postfix
-    dataframe_to_save.to_csv(f"dataset/training_data{file_name_postfix}.csv")
-    # dataframe_to_save.to_html(f'dataset/training_data{file_name_postfix}.html')
+def store_metrics_to_files(dataframe_to_save, training_data_filename):
+    dataframe_to_save.to_csv(training_data_filename)
+    # dataframe_to_save.to_html(f'{training_data_filename}.html')
 
 
 def get_step_data(config, services_with_anomaly):
-    latency_df_source, service_dict_temp, request_error_rates = get_metrics(prom_url)
+    latency_df_source, service_dict_temp, request_error_rates = get_metrics(config)
     service_metrics_frame = pd.DataFrame()
     service_dict = {}
 
@@ -88,8 +87,10 @@ def get_step_data(config, services_with_anomaly):
 
 def loop_retrieve_training_step(config):
     initialization_start_time = time.strftime("%Y%m%d-%H%M%S")
+    training_data_filename = f"dataset/training_data_{initialization_start_time}.csv"
     number_of_training_data = config['number_of_training_data']
     number_of_initial_steps = config['number_of_initial_steps']
+    step_interval = config['step_interval']
     columns_to_skip = []
     mean_ground_truth_values = {}
     all_dataframe = pd.DataFrame()
@@ -99,11 +100,14 @@ def loop_retrieve_training_step(config):
         try:
             logger.info(f"Starting step #{step_no}")
             row_dataframe, event_counter = retrieve_training_step(config, step_no, event_counter)
-            row_dataframe.drop(columns=set(columns_to_skip).intersection(set(row_dataframe.columns)), inplace=True)
+            step_start_time = time.time()
+            processed_dataframe = row_dataframe.drop(
+                columns=set(columns_to_skip).intersection(set(row_dataframe.columns)))
 
-            all_dataframe = pd.concat([all_dataframe, row_dataframe], ignore_index=True)
+            all_dataframe = pd.concat([all_dataframe, processed_dataframe], ignore_index=True)
 
             if step_no + 1 > number_of_initial_steps:
+                # Print anomaly detections during fault injections
                 # anomaly_states_by_metric, clustering_instances, sort_indices, normalization_factors = birch_ad(all_dataframe)
                 # abnormal_metrics = []
                 # for metric, discrete_metric_values in anomaly_states_by_metric.items():
@@ -117,6 +121,7 @@ def loop_retrieve_training_step(config):
                 logger.info("Initial ground truth data is collected.")
                 for column in all_dataframe.columns.copy():
                     if len(pd.unique(all_dataframe[column])) == 1 and pd.isnull(all_dataframe[column][0]):
+                        # Remove columns only with null value
                         columns_to_skip.append(column)
                         all_dataframe.pop(column)
                     elif column != "timestamp":
@@ -125,16 +130,16 @@ def loop_retrieve_training_step(config):
                         # all_dataframe[column].fillna(column_mean_value, inplace=True)
                 # logger.info("Columns with only NaN values are removed and NaN values are filled with mean.")
                 logger.info("Columns with only NaN values are removed.")
-            store_metrics_to_files(all_dataframe, initialization_start_time)
+            store_metrics_to_files(all_dataframe, training_data_filename)
             last_metrics = all_dataframe.iloc[-1].copy()
-            for column in last_metrics.index:
-                if column in mean_ground_truth_values and math.isnan(last_metrics[column]):
-                    last_metrics[column] = mean_ground_truth_values[column]
+            fill_empty_cells_with_ground_truth_data(last_metrics, mean_ground_truth_values)
             last_metrics["timestamp"] = last_metrics["timestamp"].strftime('%Y-%m-%d %H:%M:%S')
-            # send_metrics(last_metrics, config['lasm_server_urls'])
+            send_metrics(last_metrics, config['lasm_server_urls'], config['reporting_identifier'])
+            wait_rest_of_interval_time(step_start_time, step_interval)
             step_no += 1
             if step_no >= number_of_training_data:
                 logger.info(f"Completing data collection after step #{step_no}")
+                config["training_data"] = [training_data_filename]
                 break
         except Exception:
             logger.exception("Error during loop_retrieve_training_step")
@@ -142,7 +147,6 @@ def loop_retrieve_training_step(config):
 
 def retrieve_training_step(config, step_no, event_counter):
     number_of_initial_steps = config['number_of_initial_steps']
-    step_interval = config['step_interval']
     services_with_anomaly = {}
     if step_no < number_of_initial_steps:
         logger.info(f"Initialization step #{step_no}")
@@ -181,10 +185,7 @@ def retrieve_training_step(config, step_no, event_counter):
             services_with_anomaly[selected_service] = FAULT_STATUS[available_experiments[selected_experiment_index]]
         logger.info(f"Anomaly selection for experiment step #{experiment_step_no}: {services_with_anomaly}")
         time.sleep(60)
-    step_start_time = time.time()
-
     row_dataframe = get_step_data(config, services_with_anomaly)
-    wait_rest_of_interval_time(step_start_time, step_interval)
     return row_dataframe, event_counter
 
 

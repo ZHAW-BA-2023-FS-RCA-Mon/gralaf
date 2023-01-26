@@ -1,22 +1,28 @@
-FROM ubuntu:20.04
+FROM python:3.10-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python3-pip python3-dev pkg-config graphviz-dev graphviz
 
-RUN apt-get update && \
-    apt-get install -y python3-pip python3-dev pkg-config graphviz-dev
+RUN pip install pygraphviz==1.10
+RUN pip install torch==1.13.1 --extra-index-url https://download.pytorch.org/whl/cpu
 
-RUN /usr/bin/python3 -m pip install --upgrade pip && \
-    pip install pygraphviz
+ADD requirements-gralaf.txt .
 RUN pip install -r requirements-gralaf.txt
 
 RUN mkdir dataset
+RUN mkdir cbn_graph
+RUN mkdir structure_models
 
-ADD config.yaml .
-ADD cbn_based_rca.py .
-ADD generate_cbn.py .
+ADD main.py .
 ADD anomaly_detection.py .
-ADD causal_test-from-archive.py .
+ADD cbn_based_rca.py .
 ADD chaos_mesh_utils.py .
-ADD requirements-gralaf.txt .
+ADD config.py .
+ADD data_manipulation.py .
+ADD generate_cbn.py .
+ADD lasm_utils.py .
+ADD metric.py .
+ADD sla.py .
+ADD test_data.py .
+ADD models models
 
-CMD ["python3", "./cbn_based_rca.py"]
+ENTRYPOINT ["python3", "./main.py"]

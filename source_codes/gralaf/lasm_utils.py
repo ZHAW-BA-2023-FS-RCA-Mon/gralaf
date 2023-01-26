@@ -1,25 +1,26 @@
 import json
 import logging
+import math
 
 import requests
 import yaml
 
 import config as c
 
-LASM_ADDRESS = "http://localhost:5000"
-INCIDENT_PATH = "/analysis-service/gralaf-report"
-METRICS_PATH = "/analysis-service/gralaf-metrics"
+INCIDENT_PATH = "/gralaf/incidentReport/"
+METRICS_PATH = "/gralaf/serviceData/"
 
 session = requests.Session()
 logger = logging.getLogger(__name__)
 
 
-def send_metrics(last_metrics, lasm_addresses):
+def send_metrics(last_metrics, lasm_addresses, reporting_identifier=""):
     last_metrics = last_metrics.to_dict()
+    if any(not isinstance(val, str) and math.isnan(val) for val in last_metrics.values()):
+        logger.info("There are NaN values, skips sending metrics.")
+        return
 
-    # data_to_send = {"violations": [],
-    #                 "metrics": last_metrics}
-
+    last_metrics["reporting_identifier"] = reporting_identifier
     with open("sample_metrics_data.json", "w+") as outfile:
         json.dump(last_metrics, outfile, indent=2)
     for lasm_address in lasm_addresses:
@@ -37,11 +38,16 @@ def post_data(data, url, data_name):
         logger.info(f"Successfully sent {data_name} to LASM at {url}")
     else:
         logger.error(
-            f"Unable to sent {data_name} to {response.request.url}. Response: {response.status_code} - {response.text}")
+            f"Unable to sent {data_name} to {response.request.url}. Response: {response.status_code} -"
+            f" {response.text[:100]}")
 
 
-# curl -X POST http://127.0.0.1:8000/analysis-service/gralafreport/
-def send_incident(data, lasm_addresses):
+def send_incident(data, lasm_addresses, reporting_identifier=""):
+    data["reporting_identifier"] = reporting_identifier
+
+    with open("sample_gralaf_data.json", "w+") as outfile:
+        json.dump(data, outfile, indent=2)
+
     for lasm_address in lasm_addresses:
         url = f"{lasm_address}{METRICS_PATH}"
         post_data(data, url, "incident")

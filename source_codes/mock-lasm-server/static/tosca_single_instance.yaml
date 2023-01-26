@@ -1,0 +1,892 @@
+---
+description: TOSCA manifest profile
+imports:
+- TRAILS_type.yaml
+topology_template:
+  inputs:
+    authors:
+      type: list
+    commitment:
+      type: list
+    header:
+      type: list
+    usageRecommendation:
+      type: list
+    validations:
+      type: list
+  node_templates:
+    Edgex-app-service:
+      properties:
+        authors:
+        - country: France
+          name: SP2
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP2
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-appService_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-app-service commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP2
+            role: Service provider
+          model: Edgex-app-service
+          system_info: Edgex-app-service
+          title: Edgex-app-service
+          url: Edgex-app-service.com
+          version: '1'
+      requirements:
+      - external_link: VL13
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 1 GB
+                - disk:
+                    greater_or_equal: 0.8 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-core-command:
+      properties:
+        authors:
+        - country: France
+          name: SP3
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP3
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-core-command_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-core-command commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP3
+            role: Service provider
+          model: Edgex-core-command
+          system_info: Edgex-core-command
+          title: Edgex-core-command
+          url: Edgex-core-command.com
+          version: '1'
+      requirements:
+      - external_link: VL3
+      - external_link: VL17
+      - external_link: VL12
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 60%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.2 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-core-consul:
+      properties:
+        authors:
+        - country: France
+          name: SP2
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP2
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-core-consul
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-core-consul commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP2
+            role: Service provider
+          model: Edgex-core-consul
+          system_info: Edgex-core-consul
+          title: Edgex-core-consul
+          url: Edgex-core-consul.com
+          version: '1'
+      requirements:
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.3 GB
+                - disk:
+                    greater_or_equal: 1 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-core-data:
+      properties:
+        authors:
+        - country: France
+          name: SP1
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP1
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-core_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.999
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-core-commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP1
+            role: Service provider
+          model: Edgex-core-data
+          system_info: Edgex-core-data
+          title: Edgex-core-data
+          url: Edgex-core-data.com
+          version: '1'
+      requirements:
+      - external_link: VL7
+      - external_link: VL8
+      - external_link: VL6
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 40%
+                - mem_size:
+                    greater_or_equal: 0.5 GB
+                - disk:
+                    greater_or_equal: 0.3 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-core-metadata:
+      properties:
+        authors:
+        - country: France
+          name: SP1
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP1
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-core-metadata_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-core-metadata
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP1
+            role: Service provider
+          model: Edgex-core-metadata
+          system_info: Edgex-core-metadata
+          title: Edgex-core-metadata
+          url: Edgex-core-metadata.com
+          version: '1'
+      requirements:
+      - external_link: VL9
+      - external_link: VL12
+      - external_link: VL5
+      - external_link: VL11
+      - external_link: VL10
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.4 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-device-mqtt:
+      properties:
+        authors:
+        - country: France
+          name: SP3
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP3
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-device-mqtt_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-mqtt-device commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP3
+            role: Service provider
+          model: Edgex-device-mqtt
+          system_info: Edgex-device-mqtt
+          title: Edgex-device-mqtt
+          url: Edgex-device-mqtt.com
+          version: '1'
+      requirements:
+      - external_link: VL10
+      - external_link: VL17
+      - external_link: VL18
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 60%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.2 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-device-rest:
+      properties:
+        authors:
+        - country: France
+          name: SP3
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP3
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-device-rest_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-device-rest
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP3
+            role: Service provider
+          model: Edgex-device-rest
+          system_info: Edgex-device-rest
+          title: Edgex-device-rest
+          url: Edgex-device-rest.com
+          version: '1'
+      requirements:
+      - external_link: VL8
+      - external_link: VL12
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.2 GB
+                - disk:
+                    greater_or_equal: 0.5 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-device-virtual:
+      properties:
+        authors:
+        - country: France
+          name: SP3
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP3
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-device-virtual_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-device-virtual commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP3
+            role: Service provider
+          model: Edgex-device-virtual
+          system_info: Edgex-device-virtual
+          title: Edgex-device-virtual
+          url: Edgex-device-virtual.com
+          version: '1'
+      requirements:
+      - external_link: VL14
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.5 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-fledge-exporter:
+      properties:
+        authors:
+        - country: France
+          name: SP2
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP2
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-fledge-exporter_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+          title: Edgex-fledge-experter commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP2
+            role: Service provider
+          model: Edgex-fledge-exporter
+          system_info: Edgex-fledge-exporter
+          title: Edgex-fledge-exporter
+          url: Edgex-fledge-exporter.com
+          version: '1'
+      requirements:
+      - external_link: VL15
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.3 GB
+                - disk:
+                    greater_or_equal: 1 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-mqtt-broker:
+      properties:
+        authors:
+        - country: France
+          name: SP2
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP2
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-mqtt-broker_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-mqtt-broker commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP2
+            role: Service provider
+          model: Edgex-mqtt-broker
+          system_info: Edgex-mqtt-broker
+          title: Edgex-mqtt-broker
+          url: Edgex-mqtt-broker.com
+          version: '1'
+      requirements:
+      - external_link: VL18
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 60%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.2 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-redis:
+      properties:
+        authors:
+        - country: France
+          name: SP2
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP2
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-redis_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 500.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-redis commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP2
+            role: Service provider
+          model: Edgex-redis
+          system_info: Edgex-redis
+          title: Edgex-redis
+          url: Edgex-redis.com
+          version: '1'
+      requirements:
+      - external_link: VL13
+      - external_link: VL7
+      - external_link: VL2
+      - external_link: VL9
+      - external_link: VL16
+      - external_link: VL15
+      - external_link: VL14
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 2 GB
+                - disk:
+                    greater_or_equal: 10 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-support-notifications:
+      properties:
+        authors:
+        - country: France
+          name: SP4
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP4
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-support-notification_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: Max_service_delay
+              slo_type: communication
+            - slo_min_value: 50.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-support-notification-commit
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP4
+            role: Service provider
+          model: Edgex-support-notification
+          system_info: Edgex-support-notification
+          title: Edgex-support-notification
+          url: Edgex-support-notification.com
+          version: '1'
+      requirements:
+      - external_link: VL16
+      - external_link: VL1
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.4 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-support-scheduler:
+      properties:
+        authors:
+        - country: France
+          name: SP4
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP4
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-support-notification_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: Max_service_delay
+              slo_type: communication
+            - slo_min_value: 50.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-support-scheduler commit
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP4
+            role: Service provider
+          model: edgex-support-scheduler
+          system_info: edgex-support-schedular
+          title: edgex-support-schedular
+          url: edgex-support-schedular.com
+          version: '1'
+      requirements:
+      - external_link: VL2
+      - external_link: VL4
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 20%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 0.4 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-sys-mgmt:
+      properties:
+        authors:
+        - country: France
+          name: SP1
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP1
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: Edgex-sys-mgmt_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 100.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 100.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-sys-mgmt commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP1
+            role: Service provider
+          model: Edgex-sys-mgmt
+          system_info: Edgex-sys-mgmt
+          title: Edgex-sys-mgmt
+          url: Edgex-sys-mgmt.com
+          version: '1'
+      requirements:
+      - external_link: VL19
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 40%
+                - mem_size:
+                    greater_or_equal: 0.2 GB
+                - disk:
+                    greater_or_equal: 0.3 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+    Edgex-ui:
+      properties:
+        authors:
+        - country: France
+          name: SP4
+          role: Service Provider
+        commitment:
+        - author:
+            country: France
+            name: SP4
+            role: Service provider
+          sla:
+          - sla_model: WS-Agreement
+            sla_name: edgex-ui_SLA
+            slo:
+            - slo_max_value: 1.0
+              slo_min_value: 0.99
+              slo_name: Availability
+              slo_type: communication
+            - slo_max_value: 150.0
+              slo_min_value: 0.0
+              slo_name: max_service_delay
+              slo_type: communication
+            - slo_min_value: 250.0
+              slo_name: request_per_second
+              slo_type: communication
+          title: Edgex-ui commitment
+        header:
+          component_type: microservice
+          lead_author:
+            country: France
+            name: SP4
+            role: Service provider
+          model: Edgex-ui
+          system_info: Zdgex-ui
+          title: Edgex-ui
+          url: Edgex-ui.com
+          version: '1'
+      requirements:
+      - external_link: VL3
+      - external_link: VL19
+      - external_link: VL4
+      - external_link: VL1
+      - external_link: VL6
+      - external_link: VL5
+      - container:
+          node_filter:
+            capabilities:
+            - host:
+                properties:
+                - cpu:
+                    greater: 70%
+                - mem_size:
+                    greater_or_equal: 0.1 GB
+                - disk:
+                    greater_or_equal: 2 GB
+                - CPUfreq:
+                    greater_or_equal: 1.5GHz
+      type: tosca.nodes.nfv.TRAILS
+  substitution_mappings:
+    node_type: tosca.nodes.nfv.TRAILS
+    properties:
+      authors:
+      - country: France
+        name: SP1
+        role: Service provider
+      - country: France
+        name: SP2
+        role: Service provider
+      - country: France
+        name: SP3
+        role: Service provider
+      - country: France
+        name: SP4
+        role: Service provider
+      commitment:
+      - author:
+          country: France
+          name: SP1
+          role: Service provider
+        sla:
+        - sla_model: WS-Agreement
+          sla_name: Edgex_SLA
+          slo:
+          - slo_max_value: 1.0
+            slo_min_value: 0.99
+            slo_name: Availability
+            slo_type: communication
+          - slo_max_value: 300.0
+            slo_min_value: 0.0
+            slo_name: max_service_delay
+            slo_type: communication
+        title: Edgex commitment
+      header:
+        component_type: microservice
+        lead_author:
+          country: France
+          name: SP1
+          role: Service provider
+        model: Edgex
+        system_info: Edgex
+        title: Edgex
+        version: '1'
+tosca_definitions_version: tosca_simple_yaml_1_2

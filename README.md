@@ -17,6 +17,8 @@ We utilized five VMs for the entire test setup in an OpenStack cloud infrastruct
 Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and GRALAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
 These services can be deployed with the helm charts available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
 
+Note: FledgeSouthHTTPEndpoint parameter in [data exporter config file](helm_charts/gralaf_infrastructure/helm_edgex/templates/edgex-exporter-fledge/edgex-exporter-fledge-configmap.yaml) should be changed.
+
 VM4 hosted another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart.
 
 VM5 hosted Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we also added a *http_south* service with the following configurations:
@@ -41,15 +43,11 @@ Run `microk8s add-node` on the first VM which is going to be master node and fol
 Note: You may need to add the ip address-hostname pair to /etc/hosts for the master node. Example /etc/hosts  file:
 ```
 127.0.0.1 localhost
-127.0.1.1 vm1
+10.0.11.2 vm1
 10.0.11.13 vm2
+10.0.11.15 vm3
 
-# The following lines are desirable for IPv6 capable hosts
-::1     ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
+...
 ```
 
 - On master node, activate add-ons with
@@ -72,8 +70,8 @@ docker push localhost:32000/load-generator:0.0.3
 ```
 
 
-The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8GB RAM, and 160GB SSD storage.<br />
-For VM4 and VM5, each has 1 vCPU, 2GB RAM, and 120GB SSD.
+The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8GB RAM, and 50GB SSD storage.<br />
+For VM4 and VM5, each has 1 vCPU, 2GB RAM, and 30GB SSD.
 
 
 <a id="1">[1]</a>  O. Kalinagac, W. Soussi, Yacine Anser, Chrystel Gaber, and G. Gür, "Root Cause and Liability Analysis in the Microservices Architecture for Edge IoT Services," [In progress]

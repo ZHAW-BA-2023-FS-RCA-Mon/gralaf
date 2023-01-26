@@ -14,24 +14,6 @@ from data_manipulation import filter_columns_by_inference_engine, remove_columns
 from generate_cbn import filter_data, get_raw_data
 from lasm_utils import send_incident
 
-# def filter_raw_data(raw_data, all_dataframe):
-#     raw_data['probing_time'] = raw_data['timestamp'].strftime('%Y-%m-%d %H:%M:%S')
-#     raw_data.pop("timestamp")
-#     for column in raw_data.index.copy():
-#         if column.startswith("probing_time"):
-#             continue
-#         if column.startswith("network") or column.startswith("memory") or column.startswith("sent_bytes"):
-#             raw_data.pop(column)
-#         elif "support-notifications" in column or "kuiper" in column or "support-scheduler" in column or \
-#                 "sys-mgmt-agent" in column or "app-rules-engine" in column:
-#             raw_data.pop(column)
-#         elif len(pd.unique(all_dataframe[column])) == 1:
-#             raw_data.pop(column)
-#         elif column.startswith("edgex"):
-#             raw_data.pop(column)
-#         elif pd.isna(raw_data[column]):
-#             raw_data[column] = all_dataframe[column][0]
-
 logger = logging.getLogger(__name__)
 
 
@@ -67,9 +49,14 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
     analysis_start_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
     # logger.info(f"Row to be checked:\n{new_step_data}")
     for column in new_step_data.index.copy():
-        if column.startswith("edgex"):
-            new_step_data.pop(column)
+        try:
+            if column.startswith("edgex"):
+                new_step_data.pop(column)
+        except:
+            print("")
     metric_retrieval_time = new_step_data["timestamp"]
+    if isinstance(metric_retrieval_time, datetime):
+        metric_retrieval_time = metric_retrieval_time.strftime('%Y-%m-%d %H:%M:%S')
     new_step_data.pop("timestamp")
     discrete_test_step_data = new_step_data.copy()
     discrete_data_by_metric = discretize_with_trained_mode(new_step_data, trained_model)
@@ -132,7 +119,6 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
     for result in predictions:
         result_table += f"{result['service_name']}: {result['probability']} ({result['fault_distribution']})\n"
     logger.info(result_table)
-    # send_metrics(new_step_data, config['lasm_server_urls'])
     root_cause_analysis_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
     if predictions:
         main_responsible = predictions[0]
@@ -159,11 +145,9 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
                             "violation_evidence": discrete_test_step_data,
                             "root_cause_analysis_time": root_cause_analysis_time
                             }
-            logger.debug(f"Sending incident report...")
+            logger.info(f"Sending incident report...")
             logger.debug(f"Incident report:\n{data_to_send}")
-            with open("sample_gralaf_data.json", "w+") as outfile:
-                json.dump(data_to_send, outfile, indent=2)
-            send_incident(data_to_send, config['lasm_server_urls'])
+            send_incident(data_to_send, config['lasm_server_urls'], config['reporting_identifier'])
     return {"predictions": predictions,
             "violation_time": metric_retrieval_time,
             "analysis_start_time": analysis_start_time,

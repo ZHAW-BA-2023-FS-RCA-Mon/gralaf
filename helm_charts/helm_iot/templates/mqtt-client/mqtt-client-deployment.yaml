@@ -26,9 +26,9 @@ spec:
         imagePullPolicy: {{.Values.gralaf.image.mqttClient.pullPolicy}}
         args:
         - "-i"
-        - {{.Values.gralaf.edgexServer.address}}
+        - {{.Values.gralaf.edgexServer.address | quote }}
         - "-p"
-        - {{.Values.gralaf.edgexServer.port}}
+        - {{.Values.gralaf.edgexServer.port | quote }}
         env:
         - name: SERVICE_HOST
           value: {{.Values.gralaf.app.mqttClient}}
