@@ -25,6 +25,7 @@ spec:
       - name: {{.Values.gralaf.app.gralaf}}
         image: {{.Values.gralaf.image.gralaf.repository}}:{{.Values.gralaf.image.gralaf.tag}}
         imagePullPolicy: {{.Values.gralaf.image.gralaf.pullPolicy}}
+        args: [ "--config", "/configs/config.yaml"]
         env:
         - name: SERVICE_HOST
           value: {{.Values.gralaf.app.gralaf}}
@@ -33,12 +34,14 @@ spec:
             name: gralaf-common-variables
         securityContext:
           allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
         volumeMounts:
         - name: configmap
-          mountPath: /res
+          mountPath: /configs
         - name: dataset
           mountPath: /dataset
+        - name: tmp-dir
+          mountPath: /tmp
       {{- if .Values.gralaf.resources.gralaf.enforceLimits }}
         resources:
           limits:
@@ -50,17 +53,15 @@ spec:
       {{- end}}
       hostname: {{.Values.gralaf.app.gralaf}}
       restartPolicy: Always
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: {{ .Values.gralaf.security.runAsUser }}
-        runAsGroup: {{ .Values.gralaf.security.runAsGroup }}
       volumes:
       - name: configmap
         configMap:
           name: gralaf-configmap
           items:
-          - key: configuration.yaml
-            path: configuration.yaml
+          - key: config.yaml
+            path: config.yaml
       - name: dataset
         persistentVolumeClaim:
           claimName: gralaf-dataset
+      - name: tmp-dir
+        emptyDir: { }

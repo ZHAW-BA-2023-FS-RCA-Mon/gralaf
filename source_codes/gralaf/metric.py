@@ -35,7 +35,7 @@ def convert_to_availability_by_container(results):
 
 
 def prometheus_query(prom_url, query):
-    response = session.get(prom_url,
+    response = session.get(prom_url + "/api/v1/query",
                            params={'query': query}, timeout=5)
     return response.json()['data']['result']
 
@@ -228,7 +228,7 @@ def mpg_add_connection(df, dg, results):
 def get_service_graph(prom_url):
     dg = nx.DiGraph()
     df = pd.DataFrame(columns=['source', 'destination'])
-    response = session.get(prom_url,
+    response = session.get(prom_url + "/api/v1/query",
                            params={
                                'query': 'sum(rate(istio_tcp_received_bytes_total[' + METRIC_TIME_INTERVAL +
                                         '])) by (source_workload, destination_workload)'
@@ -236,7 +236,7 @@ def get_service_graph(prom_url):
     results1 = response.json()['data']['result']
     dg, df = mpg_add_connection(df, dg, results1)
 
-    response = session.get(prom_url,
+    response = session.get(prom_url + "/api/v1/query",
                            params={
                                'query': 'sum(rate(istio_requests_total{destination_workload_namespace="' + NAMESPACE +
                                         '"}[' + METRIC_TIME_INTERVAL + '])) by (source_workload, destination_workload)'

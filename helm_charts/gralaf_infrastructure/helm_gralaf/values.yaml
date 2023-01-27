@@ -20,7 +20,7 @@ gralaf:
     gralaf:
       repository: localhost:32000/gralaf
       tag: "0.0.1"
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
     lasmServer:
       repository: localhost:32000/lasm-server
       tag: "0.0.1"
