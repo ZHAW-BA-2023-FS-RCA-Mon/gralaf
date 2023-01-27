@@ -14,7 +14,7 @@ You can uninstall it with `microk8s.helm3 delete edgex-jakarta -n edgex
 
 Create a namespace with: `kubectl create namespace gralaf`
 
-Use the following commands to install/uninstall GRALAF
+Use the following commands to install/uninstall GRALAF:
 ```
 microk8s.helm3 install gralaf -n gralaf .
 microk8s.helm3 delete gralaf -n gralaf
