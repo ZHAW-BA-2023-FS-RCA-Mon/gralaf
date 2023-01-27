@@ -14,8 +14,11 @@ It is developed in Python and can be deployed in the same Kubernetes environment
 
 We utilized five VMs for the entire test setup in an OpenStack cloud infrastructure.
 
+The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8GB RAM, and 50GB SSD storage.<br />
+For VM4 and VM5, each has 1 vCPU, 2GB RAM, and 30GB SSD.
+
 Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and GRALAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
-These services can be deployed with the helm charts available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
+
 
 
 VM4 hosts another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart.
@@ -30,6 +33,27 @@ Enable: HTTP
 HTTPS Port: -
 Certificate Name: fledge
 ```
+## :hammer: Building the containers
+The microK8's local repository can be activated with `microk8s enable registry` command so that we can upload our locally build containers. 
+
+Install docker if it is not available on VM1 or VM4 with `sudo snap install docker`
+
+Then, the following commands can be used to build a docker image and upload it to the microK8's local repository from the related folders in [source_codes](source_codes)
+```
+# On gralaf folder 
+sudo docker build -f Dockerfile-gralaf -t localhost:32000/gralaf:0.0.1 .
+sudo docker push localhost:32000/gralaf:0.0.1
+# On load-generator folder
+sudo docker build -f Dockerfile-gralaf -t localhost:32000/load-generator:0.0.1 .
+sudo docker push localhost:32000/load-generator:0.0.1
+# On mock-lasm-server folder
+sudo docker build -f Dockerfile-lasm-server -t localhost:32000/lasm-server:0.0.1 .
+sudo docker push localhost:32000/lasm-server:0.0.1
+# On virtual-iot-device folder for VM4
+sudo docker build -f Dockerfile-mqtt-client -t localhost:32000/mqtt-client:0.0.1 .
+sudo docker push localhost:32000/mqtt-client:0.0.1
+```
+
 ## :wrench: Deployment
 
 Following deployment instructions are valid for Ubuntu 22.04.
@@ -52,30 +76,9 @@ On master node(VM1), activate required add-ons with `microk8s enable community i
 
 In order to use **kubectl** instead of **microk8s.kubectl** `sudo snap alias microk8s.kubectl kubectl`
 
-### :hammer: Building the containers
-The microK8's local repository can be activated with `microk8s enable registry` command so that we can upload our locally build containers. 
+Edgex/GRALAF/Prometheus/Chaos Mesh can be deployed by using the helm charts with the given instructions available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
 
-Install docker if it is not available on VM1 or VM4 with `sudo snap install docker`
-
-Then, the following commands can be used to build a docker image and upload it to the microK8's local repository from the related folders in [source_codes](source_codes)
-```
-# On gralaf folder 
-sudo docker build -f Dockerfile-gralaf -t localhost:32000/gralaf:0.0.1 .
-sudo docker push localhost:32000/gralaf:0.0.1
-# On load-generator folder
-sudo docker build -f Dockerfile-gralaf -t localhost:32000/load-generator:0.0.1 .
-sudo docker push localhost:32000/load-generator:0.0.1
-# On mock-lasm-server folder
-sudo docker build -f Dockerfile-lasm-server -t localhost:32000/lasm-server:0.0.1 .
-sudo docker push localhost:32000/lasm-server:0.0.1
-# On virtual-iot-device folder for VM4
-sudo docker build -f Dockerfile-mqtt-client -t localhost:32000/mqtt-client:0.0.1 .
-sudo docker push localhost:32000/mqtt-client:0.0.1
-```
-
-
-The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8GB RAM, and 50GB SSD storage.<br />
-For VM4 and VM5, each has 1 vCPU, 2GB RAM, and 30GB SSD.
+Similarly, MQTT-based virtual IoT device applications can be deployed by using the helm charts with the given instructions available under [helm_iot](helm_charts/helm_iot).
 
 
 <a id="1">[1]</a>  O. Kalinagac, W. Soussi, Yacine Anser, Chrystel Gaber, and G. Gür, "Root Cause and Liability Analysis in the Microservices Architecture for Edge IoT Services," [In progress]
