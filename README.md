@@ -21,7 +21,7 @@ Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which ho
 
 
 
-VM4 hosts another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart.
+VM4 hosts another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed.
 
 VM5 hosts Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we add a *http_south* service with the following configurations:
 ```
