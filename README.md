@@ -8,7 +8,7 @@ In the case of an SLA violation, it performs RCA based on CBN and reports to an 
 
 It is developed in Python and can be deployed in the same Kubernetes environment with the [Edgex](https://github.com/edgexfoundry/edgex-go) services.
 
-## :wrench: Deployment
+## :computer: Testbed Architecture
 
 <img src="images_for_git/useCase.png" alt="use case"/>
 
@@ -17,56 +17,60 @@ We utilized five VMs for the entire test setup in an OpenStack cloud infrastruct
 Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and GRALAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
 These services can be deployed with the helm charts available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
 
-Note: FledgeSouthHTTPEndpoint parameter in [data exporter config file](helm_charts/gralaf_infrastructure/helm_edgex/templates/edgex-exporter-fledge/edgex-exporter-fledge-configmap.yaml) should be changed.
 
-VM4 hosted another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart.
+VM4 hosts another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed. The applications can be deployed with [helm_iot](helm_charts/helm_iot) helm chart.
 
-VM5 hosted Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we also added a *http_south* service with the following configurations:
+VM5 hosts Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we add a *http_south* service with the following configurations:
 ```
 Host: 0.0.0.0
 Port: 6683
 URI: sensor-reading
 Asset Name Prefix: edgex-
 Enable: HTTP
-HTTPS Port: 6684
+HTTPS Port: -
 Certificate Name: fledge
 ```
+## :wrench: Deployment
 
+Following deployment instructions are valid for Ubuntu 22.04.
 
-Following deployment is valid for Ubuntu 22.04.
+On all machines you want to have a kubernetes (VM1-3,VM4), install MicroK8s with `sudo snap install microk8s --classic`
 
-On all machines you want to have a cluster, install MicroK8s with 
-- ```sudo snap install microk8s --classic```
+Run `microk8s add-node` on VM1 which is going to be master node and follow the printed instructions. 
+Note: You may need to add the ip address-hostname pair to /etc/hosts for the master node. 
 
-
-Run `microk8s add-node` on the first VM which is going to be master node and follow the printed instructions. 
-Note: You may need to add the ip address-hostname pair to /etc/hosts for the master node. Example /etc/hosts  file:
+**Example '/etc/hosts' file:**
 ```
 127.0.0.1 localhost
 10.0.11.2 vm1
 10.0.11.13 vm2
 10.0.11.15 vm3
-
 ...
 ```
 
-- On master node, activate add-ons with
-  - ```microk8s enable istio```
-  - ```microk8s enable community```
+On master node(VM1), activate required add-ons with `microk8s enable community istio dns metrics-server`
 
-In order to use kubectl instead of microk8s.kubectl: 
-- ```sudo snap alias microk8s.kubectl kubectl```
+In order to use **kubectl** instead of **microk8s.kubectl** `sudo snap alias microk8s.kubectl kubectl`
 
-### Building the containers
-The microK8's local repository can be activated with the following command so that we can upload our locally build containers. 
-```microk8s enable registry```
+### :hammer: Building the containers
+The microK8's local repository can be activated with `microk8s enable registry` command so that we can upload our locally build containers. 
 
+Install docker if it is not available on VM1 or VM4 with `sudo snap install docker`
 
-
-Then, the following commands can be used to build a docker image and upload it to the microK8's local repository
+Then, the following commands can be used to build a docker image and upload it to the microK8's local repository from the related folders in [source_codes](source_codes)
 ```
-docker build -f Dockerfile-gralaf -t localhost:32000/load-generator:0.0.3 .
-docker push localhost:32000/load-generator:0.0.3
+# On gralaf folder 
+sudo docker build -f Dockerfile-gralaf -t localhost:32000/gralaf:0.0.1 .
+sudo docker push localhost:32000/gralaf:0.0.1
+# On load-generator folder
+sudo docker build -f Dockerfile-gralaf -t localhost:32000/load-generator:0.0.1 .
+sudo docker push localhost:32000/load-generator:0.0.1
+# On mock-lasm-server folder
+sudo docker build -f Dockerfile-lasm-server -t localhost:32000/lasm-server:0.0.1 .
+sudo docker push localhost:32000/lasm-server:0.0.1
+# On virtual-iot-device folder for VM4
+sudo docker build -f Dockerfile-mqtt-client -t localhost:32000/mqtt-client:0.0.1 .
+sudo docker push localhost:32000/mqtt-client:0.0.1
 ```
 
 
