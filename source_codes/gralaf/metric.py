@@ -75,7 +75,9 @@ def get_response_times(config):
 
         latency_df[name] = float(metric)
         # latency_df[name] = latency_df[name]
-    latency_df.set_index('timestamp')
+    if 'timestamp' in latency_df:
+        latency_df.set_index('timestamp')
+    logger.info(f"Latency_df:{latency_df.to_csv()}")
     return latency_df
 
 
