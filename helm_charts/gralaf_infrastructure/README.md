@@ -6,7 +6,7 @@ Set the namespace for istio proxy injection `microk8s.kubectl label namespace ed
 
 Set FledgeSouthHTTPEndpoint parameter in [data exporter config file](helm_edgex/templates/edgex-exporter-fledge/edgex-exporter-fledge-configmap.yaml#L76) to the IP address of VM5 which hosts Fledge server. 
 
-In helm_edgex directory, use `microk8s.helm3 install edgex-jakarta -n edgex .` to deploy edgex. Make sure before running the command, that the [istio add-on is enabled](/README.md#-wrench-deployment) and the istio proxy injection for the namespace edgex is enabled. 
+In helm_edgex directory, use `microk8s.helm3 install edgex-jakarta -n edgex .` to deploy edgex. Make sure before running the command, that the [istio add-on is enabled](/README.md#-wrench--deployment) and the istio proxy injection for the namespace edgex is enabled. 
 
 You can uninstall it with `microk8s.helm3 delete edgex-jakarta -n edgex
 `
