@@ -72,7 +72,7 @@ Note: You may need to add the ip address-hostname pair to /etc/hosts for the mas
 ...
 ```
 
-On master node(VM1), activate required add-ons with `microk8s enable dns community istio dns metrics-server`
+On master node(VM1), activate required add-ons with `microk8s enable community istio dns metrics-server`
 
 To have the Kubernetes Dashboard available (optionally), install the add-on with `microk8s enable dashboard`. 
 To access it, run `microk8s dashboard-proxy` in the terminal, open your browser, navigate to `https://your_ip:10443/` and enter the key provided in the terminal.
