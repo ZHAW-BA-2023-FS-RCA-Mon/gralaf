@@ -33,10 +33,10 @@ maleaf:
 
   # port defines configuration properties for container, target and host ports
   port:
-    maleaf: 25001
-    mqttClient: 25002
-    lasmServer: 5001
-    loadGenerator: 25004
+    maleaf: 26001
+    mqttClient: 26002
+    lasmServer: 5002
+    loadGenerator: 26004
 
 
   # Duplicate default IP binding choice of docker-compose
