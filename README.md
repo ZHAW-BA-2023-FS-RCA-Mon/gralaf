@@ -23,7 +23,7 @@ Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which ho
 
 VM4 hosts another MicroK8s environment where 25 MQTT-based virtual IoT device applications are deployed.
 
-VM5 hosts Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. After installing *http_south* plugin from the UI. In order to send sensor data from Edgex, we add a *http_south* service with the following configurations:
+VM5 hosts Fledge server. You may follow [the official page](https://github.com/fledge-iot/fledge) for the installation. Pay attention on the version of the server OS since Fledge does not always support the newest releases and you may need to use an older version of the chosen OS. Afterwards, install the *http-south* plugin from the UI. In order to send sensor data from Edgex, we add a *http-south* service with the following configurations:
 ```
 Host: 0.0.0.0
 Port: 6683
@@ -73,6 +73,9 @@ Note: You may need to add the ip address-hostname pair to /etc/hosts for the mas
 ```
 
 On master node(VM1), activate required add-ons with `microk8s enable community istio dns metrics-server`
+
+To have the Kubernetes Dashboard available (optionally), install the add-on with `microk8s enable dashboard`. 
+To access it, run `microk8s dashboard-proxy` in the terminal, open your browser, navigate to `https://your_ip:10443/` and enter the key provided in the terminal.
 
 In order to use **kubectl** instead of **microk8s.kubectl** `sudo snap alias microk8s.kubectl kubectl`
 
