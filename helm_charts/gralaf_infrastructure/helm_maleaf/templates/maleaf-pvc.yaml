@@ -1,0 +1,15 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: maleaf-dataset
+spec:
+  storageClassName: "{{.Values.maleaf.storage.className}}"
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 128Mi

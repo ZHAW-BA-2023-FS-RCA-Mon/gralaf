@@ -1,0 +1,67 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    org.maleaf.service: {{.Values.maleaf.app.maleaf}}
+  name: {{.Values.maleaf.app.maleaf}}
+spec:
+  replicas: {{.Values.maleaf.replicas.maleaf}}
+  selector:
+    matchLabels:
+      org.maleaf.service: {{.Values.maleaf.app.maleaf}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        org.maleaf.service: {{.Values.maleaf.app.maleaf}}
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: {{.Values.maleaf.app.maleaf}}
+        image: {{.Values.maleaf.image.maleaf.repository}}:{{.Values.maleaf.image.maleaf.tag}}
+        imagePullPolicy: {{.Values.maleaf.image.maleaf.pullPolicy}}
+        args: [ "--config", "/configs/config.yaml"]
+        env:
+        - name: SERVICE_HOST
+          value: {{.Values.maleaf.app.maleaf}}
+        envFrom:
+        - configMapRef:
+            name: maleaf-common-variables
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+        volumeMounts:
+        - name: configmap
+          mountPath: /configs
+        - name: dataset
+          mountPath: /dataset
+        - name: tmp-dir
+          mountPath: /tmp
+      {{- if .Values.maleaf.resources.maleaf.enforceLimits }}
+        resources:
+          limits:
+            memory: {{ .Values.maleaf.resources.maleaf.limits.memory }}
+            cpu: {{ .Values.maleaf.resources.maleaf.limits.cpu }}
+          requests:
+            memory: {{ .Values.maleaf.resources.maleaf.requests.memory }}
+            cpu: {{ .Values.maleaf.resources.maleaf.requests.cpu }}
+      {{- end}}
+      hostname: {{.Values.maleaf.app.maleaf}}
+      restartPolicy: Always
+      volumes:
+      - name: configmap
+        configMap:
+          name: maleaf-configmap
+          items:
+          - key: config.yaml
+            path: config.yaml
+      - name: dataset
+        persistentVolumeClaim:
+          claimName: maleaf-dataset
+      - name: tmp-dir
+        emptyDir: { }

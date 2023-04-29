@@ -1,0 +1,21 @@
+# Copyright (C) 2023 ZHAW
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    org.maleaf.service: {{.Values.maleaf.app.lasmServer}}
+  name: {{.Values.maleaf.app.lasmServer}}
+spec:
+  type: NodePort
+  ports:
+    - name: "http"
+      port: {{.Values.maleaf.port.lasmServer}}
+      appProtocol: tcp
+      nodePort: 32002
+  selector:
+    org.maleaf.service: {{.Values.maleaf.app.lasmServer}}
+status:
+  loadBalancer: {}

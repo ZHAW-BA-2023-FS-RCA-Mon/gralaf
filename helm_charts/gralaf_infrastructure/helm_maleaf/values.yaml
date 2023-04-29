@@ -1,0 +1,89 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# Default values for helm_maleaf.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+expose:
+  # Option value: ClusterIP/NodePort/LoadBalancer
+  type: ClusterIP
+  
+maleaf:
+  app:
+    maleaf: maleaf
+    lasmServer: lasm-server
+    loadGenerator: load-generator
+
+  # image defines configuration properties for docker-image-level concerns
+  image:
+    maleaf:
+      repository: localhost:32000/maleaf
+      tag: "0.0.1"
+      pullPolicy: Always
+    lasmServer:
+      repository: localhost:32000/lasm-server
+      tag: "0.0.1"
+      pullPolicy: Always
+    loadGenerator:
+      repository: localhost:32000/load-generator
+      tag: "0.0.1"
+      pullPolicy: Always
+
+  # port defines configuration properties for container, target and host ports
+  port:
+    maleaf: 25001
+    mqttClient: 25002
+    lasmServer: 5001
+    loadGenerator: 25004
+
+
+  # Duplicate default IP binding choice of docker-compose
+  hostPortInternalBind: 127.0.0.1
+  hostPortExternalBind: 0.0.0.0
+
+  # replicas defines the number of replicas in a Deployment for the respective application
+  replicas:
+    maleaf: 1
+    lasmServer: 1
+    loadGenerator: 1
+    
+  # UID/GID for container user
+  security:
+    enabled: false
+    runAsUser: 2002
+    runAsGroup: 2001
+    tlsHost: maleaf
+  
+  resources:
+    maleaf:
+      command:
+        enforceLimits: true
+        limits:
+          cpu: 2
+          memory: 4096Mi
+        requests:
+          cpu: 0.5
+          memory: 256Mi
+    lasmServer:
+      command:
+        enforceLimits: true
+        limits:
+          cpu: 1
+          memory: 512Mi
+        requests:
+          cpu: 0.05
+          memory: 32Mi
+    loadGenerator:
+      command:
+        enforceLimits: true
+        limits:
+          cpu: 1
+          memory: 512Mi
+        requests:
+          cpu: 0.05
+          memory: 32Mi
+
+  storage:
+    className: ""
