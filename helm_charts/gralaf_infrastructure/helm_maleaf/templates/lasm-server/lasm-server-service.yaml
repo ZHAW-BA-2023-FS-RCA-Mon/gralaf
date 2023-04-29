@@ -14,7 +14,7 @@ spec:
     - name: "http"
       port: {{.Values.maleaf.port.lasmServer}}
       appProtocol: tcp
-      nodePort: 32002
+      nodePort: 33002
   selector:
     org.maleaf.service: {{.Values.maleaf.app.lasmServer}}
 status:

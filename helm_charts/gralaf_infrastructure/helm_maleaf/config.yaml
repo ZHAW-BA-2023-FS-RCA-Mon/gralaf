@@ -2,11 +2,11 @@ reporting_identifier: cluster_1
 prometheus_url: "http://prometheus.istio-system.svc.cluster.local:9090"
 lasm_server_urls:
   - "http://lasm-server.maleaf.svc.cluster.local:5002"
-#  - "http://127.0.0.1:32002"
+#  - "http://127.0.0.1:33002"
 #  - "http://127.0.0.1:5002"
 trails_server_urls:
   - "http://lasm-server.maleaf.svc.cluster.local:5002"
-#  - "http://127.0.0.1:32002"
+#  - "http://127.0.0.1:33002"
 #  - "http://127.0.0.1:5002"
 
 step_interval: 60
