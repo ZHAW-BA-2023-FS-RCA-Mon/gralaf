@@ -1,5 +1,0 @@
-log_level: "INFO"
-time_format: '%H:%M:%S'
-logging_format: "%(asctime)s.%(msecs)03d-> %(message)s"
-
-test_variable: "test variable"

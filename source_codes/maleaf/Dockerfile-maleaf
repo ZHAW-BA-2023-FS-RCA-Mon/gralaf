@@ -1,6 +1,5 @@
 FROM python:3.10-slim
 
 ADD main.py .
-ADD config.yaml .
 
 ENTRYPOINT ["python3", "./main.py"]
