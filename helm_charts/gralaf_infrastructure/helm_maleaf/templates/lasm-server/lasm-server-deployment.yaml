@@ -1,0 +1,61 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    org.maleaf.service: {{.Values.maleaf.app.lasmServer}}
+  name: {{.Values.maleaf.app.lasmServer}}
+spec:
+  replicas: {{.Values.maleaf.replicas.lasmServer}}
+  selector:
+    matchLabels:
+      org.maleaf.service: {{.Values.maleaf.app.lasmServer}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        org.maleaf.service: {{.Values.maleaf.app.lasmServer}}
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: {{.Values.maleaf.app.lasmServer}}
+        image: {{.Values.maleaf.image.lasmServer.repository}}:{{.Values.maleaf.image.lasmServer.tag}}
+        imagePullPolicy: {{.Values.maleaf.image.lasmServer.pullPolicy}}
+        env:
+        - name: SERVICE_HOST
+          value: {{.Values.maleaf.app.lasmServer}}
+        envFrom:
+        - configMapRef:
+            name: maleaf-common-variables
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: configmap
+          mountPath: /res   
+      {{- if .Values.maleaf.resources.lasmServer.enforceLimits }}
+        resources:
+          limits:
+            memory: {{ .Values.maleaf.resources.lasmServer.limits.memory }}
+            cpu: {{ .Values.maleaf.resources.lasmServer.limits.cpu }}
+          requests:
+            memory: {{ .Values.maleaf.resources.lasmServer.requests.memory }}
+            cpu: {{ .Values.maleaf.resources.lasmServer.requests.cpu }}
+      {{- end}}
+      hostname: {{.Values.maleaf.app.lasmServer}}
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: {{ .Values.maleaf.security.runAsUser }}
+        runAsGroup: {{ .Values.maleaf.security.runAsGroup }}
+      volumes:
+      - name: configmap
+        configMap:
+          name: lasm-server-configmap
+          items:
+          - key: configuration.yaml
+            path: configuration.yaml

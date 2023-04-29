@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maleaf-configmap
+data:
+  config.yaml: |-
+{{ .Files.Get "config.yaml" | indent 4}}
+
