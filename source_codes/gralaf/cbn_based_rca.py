@@ -19,11 +19,11 @@ from metric import get_response_times, get_request_error_rates, get_metric_servi
 # MAX_NUMBER_OF_CONCURRENT_FAULT_INJECTIONS = 1
 
 available_experiments = ["delay", "memory", "failure"]
-experiment_methods = [add_chaos_mesh_experiment_delay, add_chaos_mesh_experiment_memory,
-                      add_chaos_mesh_experiment_failure]
+experiment_methods = [add_chaos_mesh_experiment_delay, add_chaos_mesh_experiment_cpu,
+                      add_chaos_mesh_experiment_memory, add_chaos_mesh_experiment_failure]
 # kubectl get nodes -o wide | awk -F ' ' '{print $1 " : " $6":9100"}'
 
-FAULT_STATUS = {"delay": 1, "memory": 2, "failure": 3}
+FAULT_STATUS = {"delay": 1, "cpu": 2, "memory": 3, "failure": 4}
 LOG_LEVEL = "INFO"
 TIME_FORMAT = '%H:%M:%S'
 LOGGING_FORMAT = "%(asctime)s.%(msecs)03d-> %(message)s"

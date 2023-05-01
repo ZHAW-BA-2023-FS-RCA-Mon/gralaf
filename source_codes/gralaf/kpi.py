@@ -138,9 +138,17 @@ def get_ml_metrics(incidents, decision_threshold=DECISION_THRESHOLD, calculate_t
     false_negative_count = actual_incidents.count(False)
 
     accuracy = (true_positive_count + true_negative_count) / len(incidents)
-    recall = true_positive_count / len(actual_incidents)
-    fpr = false_positive_count / len(actual_no_incidents)
-    fnr = false_negative_count / len(actual_incidents)
+    actual_incidents_len = len(actual_incidents)
+    if actual_incidents_len == 0:
+        actual_incidents_len = 1
+
+    actual_no_incidents_len = len(actual_no_incidents)
+    if actual_no_incidents_len == 0:
+        actual_no_incidents_len = 1
+
+    recall = true_positive_count / actual_incidents_len
+    fpr = false_positive_count / actual_no_incidents_len
+    fnr = false_negative_count / actual_incidents_len
     logger.debug(f"\nAccuracy = {accuracy:.3f}\nRecall = {recall:.3f}")
     results = {"accuracy": accuracy, "recall": recall, "fpr": fpr, "fnr": fnr}
     if calculate_threshold:
@@ -268,8 +276,11 @@ def get_kpis(incidents, decision_threshold=DECISION_THRESHOLD):
             all_service_precision_data.extend(values)
             inverse_of_rank_score[shortened_service_name] = mean(inverse_of_rank_data[service_name])
             all_inverse_of_rank_data.extend(inverse_of_rank_data[service_name])
-        results_hit_rate[f"HR@{precision_level}"]["All"] = mean(all_service_precision_data)
-        inverse_of_rank_score["All"] = mean(all_inverse_of_rank_data)
+        #results_hit_rate[f"HR@{precision_level}"]["All"] = mean(all_service_precision_data)
+        mean_all = 0
+        if len(all_inverse_of_rank_data) > 0:
+            mean_all = mean(all_inverse_of_rank_data)
+        inverse_of_rank_score["All"] = mean_all
 
     results_accuracy["Fault type recall"] = {}
     for service_name, values in fault_type_precision_data.items():
@@ -351,7 +362,10 @@ def chunks(xs, n):
 def update_aggregated_result(aggregated_results, new_results, part_index):
     for kpi, rates in new_results.items():
         for service_name, value in rates.items():
-            new_value = (part_index * aggregated_results[kpi][service_name] + value) / (
+            agg_value = 0
+            if aggregated_results[kpi].keys().__contains__(service_name):
+                agg_value = aggregated_results[kpi][service_name]
+            new_value = (part_index * agg_value + value) / (
                     part_index + 1)
             aggregated_results[kpi][service_name] = new_value
 
@@ -375,6 +389,7 @@ def print_kpis_based_on_chunk_threshold_calculation(incidents, available_thresho
             results_accuracy_aggregated = results_partial["results_accuracy"]
             miss_counter = results_partial["miss_counter"]
         else:
+            logger.info("hej")
             update_aggregated_result(results_hit_rate_aggregated, results_partial["results_hit_rate"], chunk_index)
             update_aggregated_result(results_hit_rate_aggregated, {"MRR": results_partial["inverse_of_rank"]},
                                      chunk_index)
@@ -412,10 +427,10 @@ if __name__ == '__main__':
     all_dataset_results = get_results()
     training_times = get_training_time(all_dataset_results)
     all_incidents = get_incidents(all_dataset_results)
-    # mrr_by_threshold = get_mrr_for_different_threshold_values(all_incidents)
-    # save_data_to_file(mrr_by_threshold, f"mrr_results/{'_'.join(RESULT_FOLDERS)}")
-    # accuracy_by_threshold = get_accuracy_for_different_threshold_values(all_incidents)
-    # save_data_to_file(accuracy_by_threshold, f"accuracy_results/{'_'.join(RESULT_FOLDERS)}")
+    mrr_by_threshold = get_mrr_for_different_threshold_values(all_incidents)
+    save_data_to_file(mrr_by_threshold, f"mrr_results/{'_'.join(RESULT_FOLDERS)}")
+    accuracy_by_threshold = get_accuracy_for_different_threshold_values(all_incidents)
+    save_data_to_file(accuracy_by_threshold, f"accuracy_results/{'_'.join(RESULT_FOLDERS)}")
     rca_times = get_rca_time(all_incidents)
     save_data_to_file({"rca_times":rca_times,"training_times":training_times}, f"scalability_results/{'_'.join(RESULT_FOLDERS)}")
 
