@@ -67,7 +67,7 @@ def post_incident():
     return "<p>Here is your report</p>"
 
 
-@app.post("/gralaf/serviceData/")
+@app.post("/maleaf/serviceData/")
 def post_metrics():
     request_json = request.get_json()
     metric_texts = [""]
@@ -84,7 +84,7 @@ def post_metrics():
     return "<p>Here is your report</p>"
 
 
-@app.post("/gralaf/incidentReport/")
+@app.post("/maleaf/incidentReport/")
 def post_incident_with_probabilities():
     request_json = request.get_json()
     for index, result in enumerate(request_json["results"].copy()):
