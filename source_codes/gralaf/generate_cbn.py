@@ -11,6 +11,8 @@ from anomaly_detection import discretize
 from data_manipulation import remove_columns_with_single_value, filter_data, \
     remove_majorly_empty_columns, remove_columns_with_small_effect, remove_columns_with_unstable_output
 from models.trained_model import TrainedModel
+from models.trained_model_svm import TrainedModelSVM
+from models.trained_model_random_forest import TrainedModelRandomForest
 
 # import bnlearn as bn
 
@@ -98,7 +100,7 @@ def get_latest_simulation_file(folder_path="dataset"):
 
 def train_model(config):
     training_data, dataset_tag = get_raw_data(config)
-    training_data = filter_data(config, training_data)
+    #training_data = filter_data(config, training_data)
     training_data.pop("timestamp")
     training_data.columns = training_data.columns.str.replace('-', '_')
     training_data, mean_ground_truth_values = remove_majorly_empty_columns(training_data, config[
@@ -115,10 +117,25 @@ def train_model(config):
     training_data = training_data.astype('int32')
     training_data = remove_columns_with_single_value(training_data)
 
-    logger.info(f"Shape of data: {training_data.shape}")
-    trained_model = TrainedModel(config=config, clustering_instances=clustering_instances, sort_indices=sort_indices,
-                                 normalization_factors=normalization_factors, training_data=training_data,
-                                 mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
+    rca_algorithm = config['rca_algorithm']
+    trained_model = None
+    if rca_algorithm == 'svm':
+        trained_model = TrainedModelSVM(config=config, clustering_instances=clustering_instances,
+                                        sort_indices=sort_indices,
+                                        normalization_factors=normalization_factors, training_data=training_data,
+                                        mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
+    elif rca_algorithm == 'random_forest':
+        trained_model = TrainedModelRandomForest(config=config, clustering_instances=clustering_instances,
+                                        sort_indices=sort_indices,
+                                        normalization_factors=normalization_factors, training_data=training_data,
+                                        mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
+    elif rca_algorithm == 'cbn':
+        logger.info(f"Shape of data: {training_data.shape}")
+        trained_model = TrainedModel(config=config, clustering_instances=clustering_instances, sort_indices=sort_indices,
+                                     normalization_factors=normalization_factors, training_data=training_data,
+                                     mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
+    else:
+        logger.error('rca algorithm not specified')
     return trained_model
 
 

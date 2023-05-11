@@ -1,5 +1,5 @@
 reporting_identifier: cluster_0
-prometheus_url: http://prometheus.istio-system.svc.cluster.local:9090
+prometheus_url: http://160.85.252.183:32090
 lasm_server_urls:
   - "http://lasm-server.gralaf.svc.cluster.local:5001"
 #  - "http://127.0.0.1:32002"
@@ -13,15 +13,15 @@ step_interval: 10
 number_of_training_data: 50
 number_of_test_data: 41
 number_of_test_false_positive_data: 24
-number_of_initial_steps: 30
+number_of_initial_steps: 1
 number_of_concurrent_faults: 1
 use_archive: false
 test_false_positive: true
 output_folder: results
 training_data:
-#  - dataset_v6/training_data_20221101-194735.csv
+  - /Users/silvan/dev/workspace/zhaw/ba/gralaf/source_codes/gralaf/dataset/training_data_20230511_v2.csv
 test_data:
-#  - dataset_v4/training_data_20221025-140923.csv
+  #- /Users/silvan/dev/workspace/zhaw/ba/gralaf/source_codes/gralaf/dataset/test_data_20230506-110713.csv
 
 
 
@@ -47,10 +47,12 @@ services_skipped:
   - edgex-support-notifications
   - edgex-support-scheduler
 metrics_skipped:
-  - cpu
-  - error
+  - some-cpu
+  - some-error
 experiments_skipped:
-  cpu: 2
+  some-cpu: 7
+
+rca_algorithm: 'svm'
 
 log_level: "INFO"
 time_format: '%H:%M:%S'

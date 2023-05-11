@@ -39,20 +39,20 @@ def read_from_file(file_name="sm.pickle"):
 def run(config):
     global sla_data
     step_interval = config['step_interval']
-    # trained_model = None
     start_time = time.time()
     trained_model = train_model(config)
     training_end_time = time.time()
     training_completion_time = training_end_time - start_time
-    logger.info(f"Training completed in {training_completion_time} seconds.")
+    logger.info(f"Training of model completed in {training_completion_time} seconds.")
+
     while True:
         step_start_time = time.time()
         try:
-            trails_data = get_trails(config['trails_server_urls'])
-            logger.debug(trails_data)
-            sla_data = get_service_level_agreements(trails_data)
-            logger.debug(sla_data)
             if config["use_archive"]:
+                trails_data = get_trails(config['trails_server_urls'])
+                logger.debug(trails_data)
+                sla_data = get_service_level_agreements(trails_data)
+                logger.debug(sla_data)
                 test_stored_data(config, trained_model, training_completion_time=training_completion_time,
                                  training_dataset_tag=trained_model.dataset_tag, sla_data=sla_data)
                 break

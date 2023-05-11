@@ -17,7 +17,7 @@ SKIPPED_DATASETS = []
 
 # RESULT_FOLDERS = ["results_dual", "results_v2"]
 # RESULT_FOLDERS = ["results_dual"]
-RESULT_FOLDERS = ["results_v2"]
+RESULT_FOLDERS = ["results_v3"]
 # RESULT_FOLDERS = ["results_with_4_services"]
 logger = logging.getLogger(__name__)
 DECISION_THRESHOLD = 0.184

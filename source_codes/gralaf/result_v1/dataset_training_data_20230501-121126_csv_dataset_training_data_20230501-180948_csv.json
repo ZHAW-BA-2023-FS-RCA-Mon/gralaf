@@ -1,0 +1,6122 @@
+{
+  "training_completion_time": 1.0199224948883057,
+  "test_results": [
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:09:48",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.615384615384617,
+        "latency_edgex_ui_edgex_core_command": 38.74999999999999,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095923,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649847,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:10:48",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 17.499999999999993,
+        "latency_edgex_ui_edgex_core_command": 34.99999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:11:48",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.363636363636363,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:12:48",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.7,
+        "latency_edgex_ui_edgex_core_command": 33.74999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:13:48",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 10.749999999999986,
+        "latency_edgex_ui_edgex_core_command": 36.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:14:48",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.763157894736842,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:15:49",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.5,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:16:49",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:15",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.386363636363637,
+        "latency_edgex_ui_edgex_core_command": 24.836956521739133,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095923,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649836,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:17:49",
+      "analysis_start_time": "05/02/2023 05:52:15",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 12.24999999999999,
+        "latency_edgex_ui_edgex_core_command": 40.41666666666664,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:18:49",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.941176470588234,
+        "latency_edgex_ui_edgex_core_command": 31.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116305,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999738997,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547023,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.0560583008914175,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:19:49",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 16.5,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:20:49",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.86842105263158,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095923,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649836,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:21:49",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 19.3,
+        "latency_edgex_ui_edgex_core_command": 32.49999999999996,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:22:50",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.7,
+        "latency_edgex_ui_edgex_core_command": 40.41666666666664,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:23:50",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.794117647058822,
+        "latency_edgex_ui_edgex_core_command": 26.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:24:50",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.759259259259258,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:25:50",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.18181818181818,
+        "latency_edgex_ui_edgex_core_command": 36.87499999999999,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116316,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999738997,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.08266086438270082,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547034,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05605830089141761,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:26:50",
+      "analysis_start_time": "05/02/2023 05:52:16",
+      "root_cause_analysis_time": "05/02/2023 05:52:16",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 16.5,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:27:50",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.2,
+        "latency_edgex_ui_edgex_core_command": 32.49999999999996,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:28:50",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.76923076923077,
+        "latency_edgex_ui_edgex_core_command": 42.1875,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:29:51",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.433333333333334,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:30:51",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.625,
+        "latency_edgex_ui_edgex_core_command": 35.62499999999996,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:31:51",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.526315789473683,
+        "latency_edgex_ui_edgex_core_command": 27.5,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 18:32:51",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 10.0,
+        "latency_edgex_ui_edgex_core_command": 24.161764705882355,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.8381545225714935,
+          "fault_distribution": {
+            "0": 0.162,
+            "1": 0.215,
+            "3": 0.623
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.05697651122373604,
+          "fault_distribution": {
+            "0": 0.943,
+            "1": 0.046,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05446504157476262,
+          "fault_distribution": {
+            "0": 0.946,
+            "1": 0.046,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.04878165906862486,
+          "fault_distribution": {
+            "0": 0.951,
+            "1": 0.042,
+            "3": 0.006
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04449964848842236,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.036,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03702560367366703,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.026,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021817653062740416,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:44:11",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 1,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.826923076923077,
+        "latency_edgex_ui_edgex_core_command": 48.74999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 0.5,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_redis": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:46:22",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 10.0,
+        "latency_edgex_ui_edgex_core_command": 27.5,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_mqtt_broker": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095923,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649836,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:48:32",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:17",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 13.749999999999982,
+        "latency_edgex_ui_edgex_core_command": 41.87499999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_exporter_fledge": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:50:42",
+      "analysis_start_time": "05/02/2023 05:52:17",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.4,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_data": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.8931384666048962,
+          "fault_distribution": {
+            "0": 0.107,
+            "1": 0.103,
+            "3": 0.79
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.04938261304017333,
+          "fault_distribution": {
+            "0": 0.951,
+            "1": 0.041,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04708593711665843,
+          "fault_distribution": {
+            "0": 0.953,
+            "1": 0.038,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.04592079506740909,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.036,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04402370255197208,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.035,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.04339527320916425,
+          "fault_distribution": {
+            "0": 0.957,
+            "1": 0.035,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.04320263437146743,
+          "fault_distribution": {
+            "0": 0.957,
+            "1": 0.035,
+            "3": 0.008
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:52:53",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 1
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 11.5,
+        "latency_edgex_ui_edgex_core_command": 24.79,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 0.5
+      },
+      "actual_results": {
+        "edgex_core_command": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:55:04",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.323529411764705,
+        "latency_edgex_ui_edgex_core_command": 26.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_ui": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095923,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649836,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:57:15",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 11.5,
+        "latency_edgex_ui_edgex_core_command": 42.91666666666667,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_metadata": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095934,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649847,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 19:59:29",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 13.0,
+        "latency_edgex_ui_edgex_core_command": 40.0,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:01:39",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.266666666666666,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_redis": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:03:51",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.5,
+        "latency_edgex_ui_edgex_core_command": 26.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_mqtt_broker": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.7736933778938591,
+          "fault_distribution": {
+            "0": 0.226,
+            "1": 0.067,
+            "3": 0.706
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07805975524696085,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060329765333415275,
+          "fault_distribution": {
+            "0": 0.94,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04802060065204494,
+          "fault_distribution": {
+            "0": 0.952,
+            "1": 0.039,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04568571324735593,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.04393454769383898,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.034,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.033078495174758915,
+          "fault_distribution": {
+            "0": 0.967,
+            "1": 0.025,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:06:02",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 1,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.75,
+        "latency_edgex_ui_edgex_core_command": 33.74999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 0.5,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_exporter_fledge": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.7640272144399781,
+          "fault_distribution": {
+            "0": 0.236,
+            "1": 0.093,
+            "3": 0.671
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.04397899295310925,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.036,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.04284732001536262,
+          "fault_distribution": {
+            "0": 0.957,
+            "1": 0.034,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.0376581689034573,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.031,
+            "3": 0.006
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.03563295138355704,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.03361137649190771,
+          "fault_distribution": {
+            "0": 0.966,
+            "1": 0.027,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.027030273977474262,
+          "fault_distribution": {
+            "0": 0.973,
+            "1": 0.019,
+            "3": 0.008
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:08:13",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:18",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 1,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.4,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 0.5,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_data": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116316,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999739008,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547034,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05605830089141761,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:10:23",
+      "analysis_start_time": "05/02/2023 05:52:18",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 13.749999999999982,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_command": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116305,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999738997,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547023,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.0560583008914175,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:12:34",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 17.124999999999993,
+        "latency_edgex_ui_edgex_core_command": 24.863636363636363,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_ui": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.7478093575079975,
+          "fault_distribution": {
+            "0": 0.252,
+            "1": 0.182,
+            "3": 0.566
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044067623906921205,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.036,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.042747993665688044,
+          "fault_distribution": {
+            "0": 0.957,
+            "1": 0.034,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.040858892187118245,
+          "fault_distribution": {
+            "0": 0.959,
+            "1": 0.034,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036468146177373484,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03482309851006948,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.027,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.029327688583724365,
+          "fault_distribution": {
+            "0": 0.971,
+            "1": 0.02,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:14:44",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 1,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.653846153846152,
+        "latency_edgex_ui_edgex_core_command": 24.20833333333333,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 0.5,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_metadata": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:16:55",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.323529411764705,
+        "latency_edgex_ui_edgex_core_command": 24.21428571428571,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:19:05",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.22222222222222,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_redis": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.7156058205006032,
+          "fault_distribution": {
+            "0": 0.284,
+            "1": 0.209,
+            "3": 0.507
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.0471410165113747,
+          "fault_distribution": {
+            "0": 0.953,
+            "1": 0.042,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04617363652170947,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.039,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.04604984960972003,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.036,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.03765195020952816,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.03,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03126068547539218,
+          "fault_distribution": {
+            "0": 0.969,
+            "1": 0.022,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021529358666359633,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:21:16",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 1,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.45238095238095,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 0.5,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_mqtt_broker": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:23:26",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.562499999999998,
+        "latency_edgex_ui_edgex_core_command": 24.166666666666664,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_exporter_fledge": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:25:37",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.916666666666666,
+        "latency_edgex_ui_edgex_core_command": 24.109375,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_data": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:27:47",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.63157894736842,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_command": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.8944843109949409,
+          "fault_distribution": {
+            "0": 0.106,
+            "1": 0.179,
+            "3": 0.716
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.07915417411063408,
+          "fault_distribution": {
+            "0": 0.921,
+            "1": 0.065,
+            "3": 0.014
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07277753996748626,
+          "fault_distribution": {
+            "0": 0.927,
+            "1": 0.057,
+            "3": 0.015
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07192390291620421,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.056,
+            "3": 0.016
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.06262804257502619,
+          "fault_distribution": {
+            "0": 0.937,
+            "1": 0.05,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.05959878788026851,
+          "fault_distribution": {
+            "0": 0.94,
+            "1": 0.048,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.05257484269613333,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.04,
+            "3": 0.012
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:29:58",
+      "analysis_start_time": "05/02/2023 05:52:19",
+      "root_cause_analysis_time": "05/02/2023 05:52:19",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 1,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 16.0,
+        "latency_edgex_ui_edgex_core_command": 42.08333333333333,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 0.5,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_ui": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:32:08",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.77777777777778,
+        "latency_edgex_ui_edgex_core_command": 39.375,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_metadata": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:34:22",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.9,
+        "latency_edgex_ui_edgex_core_command": 26.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.7750003884770839,
+          "fault_distribution": {
+            "0": 0.225,
+            "1": 0.124,
+            "3": 0.651
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.102853986679453,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09757672149288033,
+          "fault_distribution": {
+            "0": 0.902,
+            "1": 0.087,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.08319002426232147,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.067,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06562025816748884,
+          "fault_distribution": {
+            "0": 0.934,
+            "1": 0.042,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05697140770614606,
+          "fault_distribution": {
+            "0": 0.943,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.04635303312156003,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.038,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:36:33",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 1,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 14.999999999999986,
+        "latency_edgex_ui_edgex_core_command": 24.2,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 0.5833333333333333,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_redis": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116316,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999739008,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547034,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05605830089141761,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:38:43",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 17.49999999999998,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_mqtt_broker": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116316,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999739008,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547034,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05605830089141761,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:40:54",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 17.499999999999993,
+        "latency_edgex_ui_edgex_core_command": 27.5,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_exporter_fledge": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116305,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999738997,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547023,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.0560583008914175,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:43:04",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 17.499999999999993,
+        "latency_edgex_ui_edgex_core_command": 24.11363636363636,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_data": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.9062986889507919,
+          "fault_distribution": {
+            "0": 0.094,
+            "1": 0.067,
+            "3": 0.839
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.06741786881196843,
+          "fault_distribution": {
+            "0": 0.933,
+            "1": 0.055,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.06509022827127697,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.052,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.06439967645029632,
+          "fault_distribution": {
+            "0": 0.936,
+            "1": 0.052,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.06198670755035518,
+          "fault_distribution": {
+            "0": 0.938,
+            "1": 0.049,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.061548323417914164,
+          "fault_distribution": {
+            "0": 0.938,
+            "1": 0.05,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.04232292783292457,
+          "fault_distribution": {
+            "0": 0.958,
+            "1": 0.033,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:45:15",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 1
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 16.37499999999997,
+        "latency_edgex_ui_edgex_core_command": 40.41666666666664,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 0.5
+      },
+      "actual_results": {
+        "edgex_core_command": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:47:25",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:20",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.425,
+        "latency_edgex_ui_edgex_core_command": 34.99999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_ui": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095934,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649847,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:49:36",
+      "analysis_start_time": "05/02/2023 05:52:20",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 17.124999999999993,
+        "latency_edgex_ui_edgex_core_command": 28.74999999999998,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_metadata": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:51:46",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.2,
+        "latency_edgex_ui_edgex_core_command": 24.203125,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:53:58",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.75,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_redis": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.10261278700116316,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.093,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09743500999739008,
+          "fault_distribution": {
+            "0": 0.903,
+            "1": 0.086,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.0826608643827007,
+          "fault_distribution": {
+            "0": 0.917,
+            "1": 0.066,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.07166134178547034,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.048,
+            "3": 0.023
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05605830089141761,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.04,
+            "3": 0.017
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044795969958677406,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03815773835198677,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.029,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:56:08",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 16.5,
+        "latency_edgex_ui_edgex_core_command": 24.19642857142857,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_mqtt_broker": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.7736933778938592,
+          "fault_distribution": {
+            "0": 0.226,
+            "1": 0.067,
+            "3": 0.706
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07805975524696085,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060329765333415275,
+          "fault_distribution": {
+            "0": 0.94,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04802060065204494,
+          "fault_distribution": {
+            "0": 0.952,
+            "1": 0.039,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04568571324735582,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.04393454769383898,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.034,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.033078495174758915,
+          "fault_distribution": {
+            "0": 0.967,
+            "1": 0.025,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 20:58:19",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 1,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.75,
+        "latency_edgex_ui_edgex_core_command": 34.99999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 0.5,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_exporter_fledge": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.7640272144399781,
+          "fault_distribution": {
+            "0": 0.236,
+            "1": 0.093,
+            "3": 0.671
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.043978992953109475,
+          "fault_distribution": {
+            "0": 0.956,
+            "1": 0.036,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.04284732001536262,
+          "fault_distribution": {
+            "0": 0.957,
+            "1": 0.034,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.0376581689034573,
+          "fault_distribution": {
+            "0": 0.962,
+            "1": 0.031,
+            "3": 0.006
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.03563295138355704,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.03361137649190771,
+          "fault_distribution": {
+            "0": 0.966,
+            "1": 0.027,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.027030273977474262,
+          "fault_distribution": {
+            "0": 0.973,
+            "1": 0.019,
+            "3": 0.008
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 21:00:29",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 1,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.409090909090908,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 0.5,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_data": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 21:02:40",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.5,
+        "latency_edgex_ui_edgex_core_command": 24.20833333333333,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_command": 1
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.052844828628551,
+          "fault_distribution": {
+            "0": 0.947,
+            "1": 0.048,
+            "3": 0.005
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.044979471572564766,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.008
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.04451968296464104,
+          "fault_distribution": {
+            "0": 0.955,
+            "1": 0.037,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.03691224255134151,
+          "fault_distribution": {
+            "0": 0.963,
+            "1": 0.027,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.036209511203775135,
+          "fault_distribution": {
+            "0": 0.964,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.02997688238312579,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021504393806140443,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.011,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 21:04:51",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 0,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.846153846153843,
+        "latency_edgex_ui_edgex_core_command": 24.25,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_ui": 3
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.7921836920912151,
+          "fault_distribution": {
+            "0": 0.208,
+            "1": 0.191,
+            "3": 0.601
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.06533922576895623,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.053,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06028357699992859,
+          "fault_distribution": {
+            "0": 0.94,
+            "1": 0.048,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.049384628737073166,
+          "fault_distribution": {
+            "0": 0.951,
+            "1": 0.04,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.04771795798192069,
+          "fault_distribution": {
+            "0": 0.952,
+            "1": 0.037,
+            "3": 0.01
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.04704819213335065,
+          "fault_distribution": {
+            "0": 0.953,
+            "1": 0.038,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.03011239149279321,
+          "fault_distribution": {
+            "0": 0.97,
+            "1": 0.021,
+            "3": 0.009
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 21:07:01",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:21",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 1,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.863636363636363,
+        "latency_edgex_ui_edgex_core_command": 42.91666666666667,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 0.5833333333333333,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_core_metadata": 4
+      }
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.1260208443101457,
+          "fault_distribution": {
+            "0": 0.874,
+            "1": 0.113,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.10278303670095923,
+          "fault_distribution": {
+            "0": 0.897,
+            "1": 0.082,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.09414413143649836,
+          "fault_distribution": {
+            "0": 0.906,
+            "1": 0.083,
+            "3": 0.011
+          }
+        },
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07503705402975758,
+          "fault_distribution": {
+            "0": 0.925,
+            "1": 0.063,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.07179929322204415,
+          "fault_distribution": {
+            "0": 0.928,
+            "1": 0.051,
+            "3": 0.021
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.06454067935966212,
+          "fault_distribution": {
+            "0": 0.935,
+            "1": 0.036,
+            "3": 0.028
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.06050159239666919,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.048,
+            "3": 0.013
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 21:09:14",
+      "analysis_start_time": "05/02/2023 05:52:21",
+      "root_cause_analysis_time": "05/02/2023 05:52:22",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 1,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 14.49999999999999,
+        "latency_edgex_ui_edgex_core_command": 36.87499999999999,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {}
+    },
+    {
+      "predictions": [
+        {
+          "service_name": "edgex_redis",
+          "probability": 0.07820086649151814,
+          "fault_distribution": {
+            "0": 0.922,
+            "1": 0.066,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_mqtt_broker",
+          "probability": 0.060601267517084056,
+          "fault_distribution": {
+            "0": 0.939,
+            "1": 0.047,
+            "3": 0.013
+          }
+        },
+        {
+          "service_name": "edgex_core_metadata",
+          "probability": 0.05618765139758786,
+          "fault_distribution": {
+            "0": 0.944,
+            "1": 0.047,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_ui",
+          "probability": 0.04609524844425217,
+          "fault_distribution": {
+            "0": 0.954,
+            "1": 0.037,
+            "3": 0.009
+          }
+        },
+        {
+          "service_name": "edgex_core_data",
+          "probability": 0.03852594622925043,
+          "fault_distribution": {
+            "0": 0.961,
+            "1": 0.027,
+            "3": 0.012
+          }
+        },
+        {
+          "service_name": "edgex_core_command",
+          "probability": 0.035484157618367984,
+          "fault_distribution": {
+            "0": 0.965,
+            "1": 0.029,
+            "3": 0.007
+          }
+        },
+        {
+          "service_name": "edgex_exporter_fledge",
+          "probability": 0.021803956492031373,
+          "fault_distribution": {
+            "0": 0.978,
+            "1": 0.012,
+            "3": 0.01
+          }
+        }
+      ],
+      "violation_time": "2023-05-01 21:11:24",
+      "analysis_start_time": "05/02/2023 05:52:22",
+      "root_cause_analysis_time": "05/02/2023 05:52:22",
+      "discrete_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 0,
+        "latency_edgex_ui_edgex_core_command": 1,
+        "availability_edgex_mqtt_broker": 0,
+        "availability_edgex_redis": 0,
+        "availability_edgex_ui": 0,
+        "availability_edgex_exporter_fledge": 0,
+        "availability_edgex_core_data": 0,
+        "availability_edgex_core_metadata": 0,
+        "availability_edgex_core_command": 0
+      },
+      "raw_data": {
+        "latency_edgex_core_command_edgex_core_metadata": 9.357142857142858,
+        "latency_edgex_ui_edgex_core_command": 31.24999999999997,
+        "availability_edgex_mqtt_broker": 1.0,
+        "availability_edgex_redis": 1.0,
+        "availability_edgex_ui": 1.0,
+        "availability_edgex_exporter_fledge": 1.0,
+        "availability_edgex_core_data": 1.0,
+        "availability_edgex_core_metadata": 1.0,
+        "availability_edgex_core_command": 1.0
+      },
+      "actual_results": {
+        "edgex_redis": 3
+      }
+    }
+  ]
+}
