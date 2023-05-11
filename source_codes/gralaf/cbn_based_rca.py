@@ -18,7 +18,7 @@ from metric import get_response_times, get_request_error_rates, get_metric_servi
 
 # MAX_NUMBER_OF_CONCURRENT_FAULT_INJECTIONS = 1
 
-available_experiments = ["delay", "memory", "failure"]
+available_experiments = ["delay", "cpu", "memory", "failure"]
 experiment_methods = [add_chaos_mesh_experiment_delay, add_chaos_mesh_experiment_cpu,
                       add_chaos_mesh_experiment_memory, add_chaos_mesh_experiment_failure]
 # kubectl get nodes -o wide | awk -F ' ' '{print $1 " : " $6":9100"}'
