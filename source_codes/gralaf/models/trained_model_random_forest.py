@@ -1,19 +1,17 @@
 import logging
+import os
 import pickle
 import time
-from os import path
+import random
 
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import export_graphviz
 
-# EXPERIMENTS_SKIPPED = {"cpu": 2, "memory": 3, "availability": 4}
-# METRICS_SKIPPED = ["cpu", "error", "memory", "availability"]
+NR_OF_TREES = 100
+RANDOM_STATE = 42
+
 logger = logging.getLogger(__name__)
-CB_COLOR_CYCLE = ['#377eb8', '#ff7f00', '#4daf4a',
-                  '#f781bf', '#a65628', '#984ea3',
-                  '#999999', '#e41a1c', '#dede00']
-# TABU_PARENTS = ["edgex_ui", 'edgex-exporter-fledge', 'edgex-support-scheduler']
-
 
 class TrainedModelRandomForest:
 
@@ -29,16 +27,18 @@ class TrainedModelRandomForest:
         self.dataset_tag = dataset_tag
         self.all_service_statuses = self.get_all_service_statuses(config, training_data)
         self.all_metrics = list(training_data.drop(columns=self.all_service_statuses))
-        logger.info("Starting to construct structure random forest model...")
+        logger.info("Starting to construct random forest structure model...")
         if not dataset_tag:
-            filename = time.strftime("%Y%m%d_%H%M%S")
+            filename = time.strftime("%Y%m%d_%H%M%S") + "_random_forest"
         else:
-            filename = dataset_tag
-        if path.exists(f"structure_models/{filename}.pickle"):
+            filename = dataset_tag + "_random_forest"
+        if os.path.exists(f"structure_models/{filename}.pickle"):
             self.structure_model = TrainedModelRandomForest.read_from_file(f"structure_models/{filename}.pickle")
         else:
             self.structure_model = self.learn_from_data(config, training_data, self.all_service_statuses)
             TrainedModelRandomForest.save_data_to_file(self.structure_model, filename=f"structure_models/{filename}.pickle")
+        self.save_example_tree(self.structure_model, training_data.drop(columns=self.all_service_statuses).columns, filename=filename)
+        logger.info("Structure model is constructed.")
         logger.info("Training complete.")
 
     @staticmethod
@@ -66,11 +66,9 @@ class TrainedModelRandomForest:
                 if fault_status != 0:
                     Y = np.append(Y, (service_status + '_' + str(fault_status)))
 
-        Y = Y.reshape(-1, 1)
         X = training_dataframe.drop(columns=all_service_statuses)
 
-
-        classifier = RandomForestClassifier(n_estimators=1000, random_state=42)
+        classifier = RandomForestClassifier(n_estimators=NR_OF_TREES, random_state=RANDOM_STATE)
         classifier.fit(X, Y)
 
         matched = 0
@@ -87,13 +85,22 @@ class TrainedModelRandomForest:
         return classifier
 
     @staticmethod
-    def save_data_to_file(data, filename="sm.pickle"):
+    def save_example_tree(sm, feature_names, filename=None):
+        tree_to_export = random.randrange(0, NR_OF_TREES-1)
+        if filename is None:
+            filename = time.strftime("%Y%m%d-%H%M%S")
+        filename = f'{filename}_tree_{tree_to_export}'
+        export_graphviz(sm.estimators_[tree_to_export], feature_names=feature_names.array, out_file=f'random_forest_tree/{filename}.dot', filled=True, rounded=True)
+        os.system(f'dot -Tpng random_forest_tree/{filename}.dot -o random_forest_tree/{filename}.png')
+
+    @staticmethod
+    def save_data_to_file(data, filename="sm_random_forest.pickle"):
         logger.info(f"Saving model to {filename}")
         with open(filename, "wb+") as sm_file:
             pickle.dump(data, sm_file)
 
     @staticmethod
-    def read_from_file(filename="sm.pickle"):
+    def read_from_file(filename="sm_random_forest.pickle"):
         logger.info(f"Reading model from {filename}")
         with open(filename, "rb") as sm_file:
             return pickle.load(sm_file)

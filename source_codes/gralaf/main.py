@@ -43,7 +43,7 @@ def run(config):
     trained_model = train_model(config)
     training_end_time = time.time()
     training_completion_time = training_end_time - start_time
-    logger.info(f"Training of model completed in {training_completion_time} seconds.")
+    logger.info(f"Training of {config['rca_algorithm']} model completed in {training_completion_time} seconds.")
 
     while True:
         step_start_time = time.time()
@@ -78,6 +78,7 @@ def start(configs):
     global is_initialization_required
     while True:
         logging.info('GRALAF is starting...')
+        logging.info('Chosen algorithm: ' + configs['rca_algorithm'])
         try:
             if is_initialization_required:
                 # get_service_graph(configs['prometheus_url'])

@@ -29,16 +29,17 @@ class TrainedModelSVM:
         self.dataset_tag = dataset_tag
         self.all_service_statuses = self.get_all_service_statuses(config, training_data)
         self.all_metrics = list(training_data.drop(columns=self.all_service_statuses))
-        logger.info("Starting to construct structure svm model...")
+        logger.info("Starting to construct svm structure model...")
         if not dataset_tag:
-            filename = time.strftime("%Y%m%d_%H%M%S")
+            filename = time.strftime("%Y%m%d_%H%M%S") + "_svm"
         else:
-            filename = dataset_tag
+            filename = dataset_tag + "_svm"
         if path.exists(f"structure_models/{filename}.pickle"):
             self.structure_model = TrainedModelSVM.read_from_file(f"structure_models/{filename}.pickle")
         else:
             self.structure_model = self.learn_from_data(config, training_data, self.all_service_statuses)
             TrainedModelSVM.save_data_to_file(self.structure_model, filename=f"structure_models/{filename}.pickle")
+        logger.info("Structure model is constructed.")
         logger.info("Training complete.")
 
     @staticmethod
@@ -66,7 +67,6 @@ class TrainedModelSVM:
                 if fault_status != 0:
                     Y = np.append(Y, (service_status + '_' + str(fault_status)))
 
-        Y = Y.reshape(-1, 1)
         X = training_dataframe.drop(columns=all_service_statuses)
 
         classifier = SVC(kernel='linear')
@@ -86,13 +86,13 @@ class TrainedModelSVM:
         return classifier
 
     @staticmethod
-    def save_data_to_file(data, filename="sm.pickle"):
+    def save_data_to_file(data, filename="sm_svm.pickle"):
         logger.info(f"Saving model to {filename}")
         with open(filename, "wb+") as sm_file:
             pickle.dump(data, sm_file)
 
     @staticmethod
-    def read_from_file(filename="sm.pickle"):
+    def read_from_file(filename="sm_svm.pickle"):
         logger.info(f"Reading model from {filename}")
         with open(filename, "rb") as sm_file:
             return pickle.load(sm_file)
