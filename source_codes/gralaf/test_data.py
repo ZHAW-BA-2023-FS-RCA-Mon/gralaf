@@ -101,7 +101,7 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
                 }
 
     rca_algorithm = config['rca_algorithm']
-    if rca_algorithm == 'svm':
+    if rca_algorithm in ('svm', 'random_forest'):
         data = np.array([], dtype=int)
         for column in trained_model.all_metrics:
             data = np.append(data, discrete_test_step_data[column])
@@ -117,9 +117,6 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
         logger.info(result)
         send_incident(result, config['lasm_server_urls'], config['reporting_identifier'])
         return result
-    elif rca_algorithm == 'random_forest':
-        logger.info('not implemented yet.')
-        # TODO predict random forest
     elif rca_algorithm == 'cbn':
         for inference_engine in trained_model.inference_engines:
             partial_test_data = filter_columns_by_inference_engine(discrete_test_step_data, inference_engine)
