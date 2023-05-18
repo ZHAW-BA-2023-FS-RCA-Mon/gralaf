@@ -6,7 +6,7 @@ import yaml
 
 import config as c
 import main
-from generate_cbn import train_model
+from generate_model import train_model
 
 TRAINING_DATASET_START_INDEX = 0
 TEST_DATASET_START_INDEX = 1

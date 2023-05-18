@@ -9,10 +9,10 @@ from pandas import Series
 import numpy as np
 
 from anomaly_detection import discretize_with_trained_mode
-from cbn_based_rca import get_step_data
+from rca import get_step_data
 from data_manipulation import filter_columns_by_inference_engine, remove_columns_unavailable_on_training_data, \
     remove_previously_deleted_columns
-from generate_cbn import filter_data, get_raw_data
+from generate_model import filter_data, get_raw_data
 from lasm_utils import send_incident
 
 logger = logging.getLogger(__name__)

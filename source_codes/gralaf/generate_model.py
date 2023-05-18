@@ -10,11 +10,9 @@ import yaml
 from anomaly_detection import discretize
 from data_manipulation import remove_columns_with_single_value, filter_data, \
     remove_majorly_empty_columns, remove_columns_with_small_effect, remove_columns_with_unstable_output
-from models.trained_model import TrainedModel
+from models.trained_model_cbn import TrainedModelCBN
 from models.trained_model_svm import TrainedModelSVM
 from models.trained_model_random_forest import TrainedModelRandomForest
-
-# import bnlearn as bn
 
 LOG_LEVEL = "DEBUG"
 TIME_FORMAT = '%H:%M:%S'
@@ -50,11 +48,6 @@ def create_dag(training_dataframe):
     hc = HillClimbSearch(training_dataframe)
     best_model = hc.estimate()
     print(best_model.edges())
-    # DAG = bn.structure_learning.fit(training_dataframe.astype("int32"))
-    # bn.print_CPD(DAG)
-    # bn.plot(DAG, interactive=True)
-    # q1 = bn.inference.fit(DAG, variables=['edgex-ui'], evidence={'latency_edgex-ui_edgex-core-command': 1})
-    # print(q1.df)
 
 
 def threshold_based_anomaly_detection(training_dataframe):
@@ -131,9 +124,9 @@ def train_model(config):
                                         mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
     elif rca_algorithm == 'cbn':
         logger.info(f"Shape of data: {training_data.shape}")
-        trained_model = TrainedModel(config=config, clustering_instances=clustering_instances, sort_indices=sort_indices,
-                                     normalization_factors=normalization_factors, training_data=training_data,
-                                     mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
+        trained_model = TrainedModelCBN(config=config, clustering_instances=clustering_instances, sort_indices=sort_indices,
+                                        normalization_factors=normalization_factors, training_data=training_data,
+                                        mean_ground_truth_values=mean_ground_truth_values, dataset_tag=dataset_tag)
     else:
         logger.error('rca algorithm not specified')
     return trained_model
@@ -186,5 +179,5 @@ if __name__ == '__main__':
     training_dataset = get_final_data(config_from_yaml)
     training_dataset = training_dataset[:-1]
 
-    structure_model = TrainedModel.learn_from_data(config_from_yaml, training_dataset)
+    structure_model = TrainedModelCBN.learn_from_data(config_from_yaml, training_dataset)
     pass

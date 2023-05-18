@@ -6,13 +6,7 @@ from os import path
 import numpy as np
 from sklearn.svm import SVC
 
-# EXPERIMENTS_SKIPPED = {"cpu": 2, "memory": 3, "availability": 4}
-# METRICS_SKIPPED = ["cpu", "error", "memory", "availability"]
 logger = logging.getLogger(__name__)
-CB_COLOR_CYCLE = ['#377eb8', '#ff7f00', '#4daf4a',
-                  '#f781bf', '#a65628', '#984ea3',
-                  '#999999', '#e41a1c', '#dede00']
-# TABU_PARENTS = ["edgex_ui", 'edgex-exporter-fledge', 'edgex-support-scheduler']
 
 
 class TrainedModelSVM:
@@ -69,7 +63,7 @@ class TrainedModelSVM:
 
         X = training_dataframe.drop(columns=all_service_statuses)
 
-        classifier = SVC(kernel='linear')
+        classifier = SVC(kernel=config["svm_kernel"])
         classifier.fit(X, Y)
 
         matched = 0

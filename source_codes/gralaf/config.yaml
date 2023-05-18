@@ -9,6 +9,7 @@ trails_server_urls:
   - "http://lasm-server.gralaf.svc.cluster.local:5001"
 #  - "http://127.0.0.1:5001"
 
+# General properties
 step_interval: 10
 number_of_training_data: 50
 number_of_test_data: 41
@@ -21,11 +22,8 @@ output_folder: results
 training_data:
   - dataset\training_data_20230511_v2.csv
 test_data:
-  #- /Users/silvan/dev/workspace/zhaw/ba/gralaf/source_codes/gralaf/dataset/test_data_20230506-110713.csv
+  #- dataset\test_data_20230506-110713.csv
 
-
-min_number_of_edges_per_node: 5
-weak_link_threshold: 0.05
 services_for_fault_injection:
   - edgex-core-data
   - edgex-core-command
@@ -53,6 +51,18 @@ experiments_skipped:
 # Choose from 'svm', 'random_forest' or 'cbn'
 rca_algorithm: 'svm'
 
+# SVM properties
+svm_kernel: "linear"
+
+# Random Forest properties
+number_of_trees: 100
+random_state_rf: 42
+
+# CBN properties
+min_number_of_edges_per_node: 5
+weak_link_threshold: 0.05
+
+# Log properties
 log_level: "INFO"
 time_format: '%H:%M:%S'
 logging_format: "%(asctime)s.%(msecs)03d-> %(message)s"

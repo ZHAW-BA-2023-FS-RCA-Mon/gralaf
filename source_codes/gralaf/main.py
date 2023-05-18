@@ -6,10 +6,10 @@ import time
 
 import yaml
 
-from cbn_based_rca import loop_retrieve_training_step, wait_rest_of_interval_time
+from rca import loop_retrieve_training_step, wait_rest_of_interval_time
 from data_manipulation import remove_previously_deleted_columns, fill_empty_cells_with_ground_truth_data, \
     remove_columns_unavailable_on_training_data, filter_and_fill_with_ground_truth_data
-from generate_cbn import train_model
+from generate_model import train_model
 from lasm_utils import send_metrics
 from models.exception import NewMetricFound
 from sla import get_trails, get_service_level_agreements

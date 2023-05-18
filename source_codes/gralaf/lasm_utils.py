@@ -32,13 +32,13 @@ def post_data(data, url, data_name):
     try:
         response = session.post(url, json=data, timeout=5)
     except Exception as e:
-        logger.error(f"Unable to sent {data_name} to {url} :\n{e}")
+        logger.error(f"Unable to send {data_name} to {url} :\n{e}")
         return
     if response.status_code == 200:
         logger.info(f"Successfully sent {data_name} to LASM at {url}")
     else:
         logger.error(
-            f"Unable to sent {data_name} to {response.request.url}. Response: {response.status_code} -"
+            f"Unable to send {data_name} to {response.request.url}. Response: {response.status_code} -"
             f" {response.text[:100]}")
 
 

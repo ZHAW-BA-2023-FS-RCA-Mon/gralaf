@@ -8,10 +8,8 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import export_graphviz
 
-NR_OF_TREES = 100
-RANDOM_STATE = 42
-
 logger = logging.getLogger(__name__)
+
 
 class TrainedModelRandomForest:
 
@@ -36,8 +34,10 @@ class TrainedModelRandomForest:
             self.structure_model = TrainedModelRandomForest.read_from_file(f"structure_models/{filename}.pickle")
         else:
             self.structure_model = self.learn_from_data(config, training_data, self.all_service_statuses)
-            TrainedModelRandomForest.save_data_to_file(self.structure_model, filename=f"structure_models/{filename}.pickle")
-        self.save_example_tree(self.structure_model, training_data.drop(columns=self.all_service_statuses).columns, filename=filename)
+            TrainedModelRandomForest.save_data_to_file(self.structure_model,
+                                                       filename=f"structure_models/{filename}.pickle")
+        self.save_example_tree(config, self.structure_model,
+                               training_data.drop(columns=self.all_service_statuses).columns, filename=filename)
         logger.info("Structure model is constructed.")
         logger.info("Training complete.")
 
@@ -68,7 +68,8 @@ class TrainedModelRandomForest:
 
         X = training_dataframe.drop(columns=all_service_statuses)
 
-        classifier = RandomForestClassifier(n_estimators=NR_OF_TREES, random_state=RANDOM_STATE)
+        classifier = RandomForestClassifier(n_estimators=config["number_of_trees"],
+                                            random_state=config["random_state_rf"])
         classifier.fit(X, Y)
 
         matched = 0
@@ -85,12 +86,13 @@ class TrainedModelRandomForest:
         return classifier
 
     @staticmethod
-    def save_example_tree(sm, feature_names, filename=None):
-        tree_to_export = random.randrange(0, NR_OF_TREES-1)
+    def save_example_tree(config, sm, feature_names, filename=None):
+        tree_to_export = random.randrange(0, config["number_of_trees"] - 1)
         if filename is None:
             filename = time.strftime("%Y%m%d-%H%M%S")
         filename = f'{filename}_tree_{tree_to_export}'
-        export_graphviz(sm.estimators_[tree_to_export], feature_names=feature_names.array, out_file=f'random_forest_tree/{filename}.dot', filled=True, rounded=True)
+        export_graphviz(sm.estimators_[tree_to_export], feature_names=feature_names.array,
+                        out_file=f'random_forest_tree/{filename}.dot', filled=True, rounded=True)
         os.system(f'dot -Tpng random_forest_tree/{filename}.dot -o random_forest_tree/{filename}.png')
 
     @staticmethod
