@@ -121,13 +121,26 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
                 service_name = class_[:-2]
                 if not [x for x in predictions if x['service_name'] == service_name]:
                     predictions.append(
-                        {"service_name": service_name, "probability": 1,
+                        {"service_name": service_name, "probability": 0.0,
                          "fault_distribution": {}})
                 for j in range(0, len(predictions)):
                     if predictions[j]['service_name'] == service_name:
                         predictions[j]['fault_distribution'][class_[-1]] = float(f"{prediction_proba[i]:.3f}")
                         break
             i = i + 1
+
+        for i in range(0, len(predictions)):
+            probability_of_service = 0.0
+            for fault_type in predictions[i]['fault_distribution']:
+                probability_of_service = probability_of_service + predictions[i]['fault_distribution'][fault_type]
+            for fault_type in predictions[i]['fault_distribution']:
+                if probability_of_service == 0:
+                    predictions[i]['fault_distribution'][fault_type] =\
+                        round(1 / len(predictions[i]['fault_distribution']), 3)
+                else:
+                    predictions[i]['fault_distribution'][fault_type] = \
+                        round(predictions[i]['fault_distribution'][fault_type] / probability_of_service, 3)
+            predictions[i]['probability'] = round(probability_of_service, 3)
 
         predictions = sorted(predictions, key=lambda i: i['probability'], reverse=True)
         result_table = "\n"
