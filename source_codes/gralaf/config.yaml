@@ -1,12 +1,12 @@
 reporting_identifier: cluster_0
 prometheus_url: http://160.85.252.183:32090
 lasm_server_urls:
-  - "http://lasm-server.gralaf.svc.cluster.local:5001"
+  - "http://160.85.252.183:5001"
 #  - "http://127.0.0.1:32002"
 #  - "http://127.0.0.1:5001"
 trails_server_urls:
 #  - "http://127.0.0.1:32002"
-  - "http://lasm-server.gralaf.svc.cluster.local:5001"
+  - "http://160.85.252.183:5001"
 #  - "http://127.0.0.1:5001"
 
 # General properties
@@ -16,13 +16,13 @@ number_of_test_data: 41
 number_of_test_false_positive_data: 24
 number_of_initial_steps: 10
 number_of_concurrent_faults: 1
-use_archive: false
+use_archive: yes
 test_false_positive: true
 output_folder: results
 training_data:
   - dataset\training_data_20230511-104509.csv
 test_data:
-  #- dataset\test_data_20230506-110713.csv
+  - dataset\training_data_20230511-104509.csv
 
 services_for_fault_injection:
   - edgex-core-data
@@ -43,13 +43,13 @@ services_skipped:
   - edgex-support-notifications
   - edgex-support-scheduler
 metrics_skipped:
-  - some-cpu
+  - cpu
   - some-error
 experiments_skipped:
-  some-cpu: 7
+  cpu: 2
 
 # Choose from 'svm', 'random_forest' or 'cbn'
-rca_algorithm: 'random_forest'
+rca_algorithm: 'svm'
 
 # SVM properties
 svm_kernel: "linear"

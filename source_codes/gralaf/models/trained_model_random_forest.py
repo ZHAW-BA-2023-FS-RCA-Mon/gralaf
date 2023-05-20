@@ -36,8 +36,8 @@ class TrainedModelRandomForest:
             self.structure_model = self.learn_from_data(config, training_data, self.all_service_statuses)
             TrainedModelRandomForest.save_data_to_file(self.structure_model,
                                                        filename=f"structure_models/{filename}.pickle")
-        self.save_example_tree(config, self.structure_model,
-                               training_data.drop(columns=self.all_service_statuses).columns, filename=filename)
+            self.save_example_tree(config, self.structure_model,
+                                   training_data.drop(columns=self.all_service_statuses).columns, filename=filename)
         logger.info("Structure model is constructed.")
         logger.info("Training complete.")
 
