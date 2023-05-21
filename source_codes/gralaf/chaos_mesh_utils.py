@@ -95,11 +95,6 @@ def add_chaos_mesh_experiment_delay(service_name, event_counter, experiment_dura
                 ],
                 "labelSelectors": {
                     "org.edgexfoundry.service": service_name
-                },
-                "pods": {
-                    "edgex": [
-                        "edgex-core-data-77cf5984df-jzvb8"
-                    ]
                 }
             },
             "mode": "all",
