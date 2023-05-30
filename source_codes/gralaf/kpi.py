@@ -17,7 +17,7 @@ SKIPPED_DATASETS = []
 
 # RESULT_FOLDERS = ["results_dual", "results_v2"]
 # RESULT_FOLDERS = ["results_dual"]
-RESULT_FOLDERS = ["results_v2"]
+RESULT_FOLDERS = ["results_v3"]
 # RESULT_FOLDERS = ["results_with_4_services"]
 logger = logging.getLogger(__name__)
 DECISION_THRESHOLD = 0.184
@@ -412,10 +412,10 @@ if __name__ == '__main__':
     all_dataset_results = get_results()
     training_times = get_training_time(all_dataset_results)
     all_incidents = get_incidents(all_dataset_results)
-    # mrr_by_threshold = get_mrr_for_different_threshold_values(all_incidents)
-    # save_data_to_file(mrr_by_threshold, f"mrr_results/{'_'.join(RESULT_FOLDERS)}")
-    # accuracy_by_threshold = get_accuracy_for_different_threshold_values(all_incidents)
-    # save_data_to_file(accuracy_by_threshold, f"accuracy_results/{'_'.join(RESULT_FOLDERS)}")
+    mrr_by_threshold = get_mrr_for_different_threshold_values(all_incidents)
+    save_data_to_file(mrr_by_threshold, f"mrr_results/{'_'.join(RESULT_FOLDERS)}")
+    accuracy_by_threshold = get_accuracy_for_different_threshold_values(all_incidents)
+    save_data_to_file(accuracy_by_threshold, f"accuracy_results/{'_'.join(RESULT_FOLDERS)}")
     rca_times = get_rca_time(all_incidents)
     save_data_to_file({"rca_times":rca_times,"training_times":training_times}, f"scalability_results/{'_'.join(RESULT_FOLDERS)}")
 

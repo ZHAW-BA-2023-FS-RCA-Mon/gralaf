@@ -15,10 +15,11 @@ logger = logging.getLogger(__name__)
 CB_COLOR_CYCLE = ['#377eb8', '#ff7f00', '#4daf4a',
                   '#f781bf', '#a65628', '#984ea3',
                   '#999999', '#e41a1c', '#dede00']
+
 # TABU_PARENTS = ["edgex_ui", 'edgex-exporter-fledge', 'edgex-support-scheduler']
 
 
-class TrainedModel:
+class TrainedModelCBN:
 
     def __init__(self, config, clustering_instances, sort_indices, normalization_factors, training_data,
                  mean_ground_truth_values, dataset_tag=None):
@@ -30,16 +31,16 @@ class TrainedModel:
         self.training_data = training_data
         self.mean_ground_truth_values = mean_ground_truth_values
         self.dataset_tag = dataset_tag
-        logger.info("Starting to construct structure model...")
+        logger.info("Starting to construct cbn structure model...")
         if not dataset_tag:
-            filename = time.strftime("%Y%m%d_%H%M%S")
+            filename = time.strftime("%Y%m%d_%H%M%S") + "_cbn"
         else:
-            filename = dataset_tag
+            filename = dataset_tag + "_cbn"
         if path.exists(f"structure_models/{filename}.pickle"):
-            self.structure_model = TrainedModel.read_from_file(f"structure_models/{filename}.pickle")
+            self.structure_model = TrainedModelCBN.read_from_file(f"structure_models/{filename}.pickle")
         else:
             self.structure_model = self.learn_from_data(config, training_data)
-            TrainedModel.save_data_to_file(self.structure_model, filename=f"structure_models/{filename}.pickle")
+            TrainedModelCBN.save_data_to_file(self.structure_model, filename=f"structure_models/{filename}.pickle")
         logger.info(f"Number of edges: {len(self.structure_model.edges)}")
         # self.structure_model.remove_edges_below_threshold(0.01)
         self.remove_weak_edges_from_nodes_with_many_edges(config)
@@ -191,13 +192,13 @@ class TrainedModel:
         pass
 
     @staticmethod
-    def save_data_to_file(data, filename="sm.pickle"):
+    def save_data_to_file(data, filename="sm_cbn.pickle"):
         logger.info(f"Saving model to {filename}")
         with open(filename, "wb+") as sm_file:
             pickle.dump(data, sm_file)
 
     @staticmethod
-    def read_from_file(filename="sm.pickle"):
+    def read_from_file(filename="sm_cbn.pickle"):
         logger.info(f"Reading model from {filename}")
         with open(filename, "rb") as sm_file:
             return pickle.load(sm_file)
