@@ -6,10 +6,10 @@ import time
 
 import yaml
 
-from cbn_based_rca import loop_retrieve_training_step, wait_rest_of_interval_time
+from rca import loop_retrieve_training_step, wait_rest_of_interval_time
 from data_manipulation import remove_previously_deleted_columns, fill_empty_cells_with_ground_truth_data, \
     remove_columns_unavailable_on_training_data, filter_and_fill_with_ground_truth_data
-from generate_cbn import train_model
+from generate_model import train_model
 from lasm_utils import send_metrics
 from models.exception import NewMetricFound
 from sla import get_trails, get_service_level_agreements
@@ -39,12 +39,12 @@ def read_from_file(file_name="sm.pickle"):
 def run(config):
     global sla_data
     step_interval = config['step_interval']
-    # trained_model = None
     start_time = time.time()
     trained_model = train_model(config)
     training_end_time = time.time()
     training_completion_time = training_end_time - start_time
-    logger.info(f"Training completed in {training_completion_time} seconds.")
+    logger.info(f"Training of {config['rca_algorithm']} model completed in {training_completion_time} seconds.")
+
     while True:
         step_start_time = time.time()
         try:
@@ -78,6 +78,7 @@ def start(configs):
     global is_initialization_required
     while True:
         logging.info('MALEAF is starting...')
+        logging.info('Chosen algorithm: ' + configs['rca_algorithm'])
         try:
             if is_initialization_required:
                 # get_service_graph(configs['prometheus_url'])

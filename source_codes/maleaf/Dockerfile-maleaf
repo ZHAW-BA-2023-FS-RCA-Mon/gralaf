@@ -10,17 +10,18 @@ RUN pip install -r requirements-maleaf.txt
 
 RUN mkdir dataset
 RUN mkdir cbn_graph
+RUN mkdir random_forest_tree
 RUN mkdir structure_models
 
 ADD main.py .
 ADD anomaly_detection.py .
-ADD cbn_based_rca.py .
 ADD chaos_mesh_utils.py .
 ADD config.py .
 ADD data_manipulation.py .
-ADD generate_cbn.py .
+ADD generate_model.py .
 ADD lasm_utils.py .
 ADD metric.py .
+ADD rca.py .
 ADD sla.py .
 ADD test_data.py .
 ADD models models
