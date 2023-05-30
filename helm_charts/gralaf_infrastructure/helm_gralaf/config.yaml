@@ -20,7 +20,7 @@ use_archive: false
 test_false_positive: true
 output_folder: results
 training_data:
-  - dataset\training_data_20230511-104509.csv
+  - dataset/training_data_20230521-202044.csv
 test_data:
   #- dataset\test_data_20230506-110713.csv
 
@@ -43,10 +43,10 @@ services_skipped:
   - edgex-support-notifications
   - edgex-support-scheduler
 metrics_skipped:
-  - some-cpu
-  - some-error
+  #- cpu
+  #- error
 experiments_skipped:
-  some-cpu: 7
+  #cpu: 2
 
 # Choose from 'svm', 'random_forest' or 'cbn'
 rca_algorithm: 'random_forest'
