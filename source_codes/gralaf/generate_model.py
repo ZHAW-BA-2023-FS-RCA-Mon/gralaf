@@ -93,7 +93,7 @@ def get_latest_simulation_file(folder_path="dataset"):
 
 def train_model(config):
     training_data, dataset_tag = get_raw_data(config)
-    #training_data = filter_data(config, training_data)
+    training_data = filter_data(config, training_data)
     training_data.pop("timestamp")
     training_data.columns = training_data.columns.str.replace('-', '_')
     training_data, mean_ground_truth_values = remove_majorly_empty_columns(training_data, config[
