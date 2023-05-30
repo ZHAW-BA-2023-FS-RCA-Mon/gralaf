@@ -16,13 +16,13 @@ number_of_test_data: 41
 number_of_test_false_positive_data: 24
 number_of_initial_steps: 10
 number_of_concurrent_faults: 1
-use_archive: yes
+use_archive: false
 test_false_positive: true
 output_folder: results
 training_data:
-  - dataset\training_data_20230511-104509.csv
+  - dataset/training_data_20230521-202044.csv
 test_data:
-  - dataset\training_data_20230511-104509.csv
+  #- dataset/training_data_20230511-104509.csv
 
 services_for_fault_injection:
   - edgex-core-data
@@ -44,7 +44,7 @@ services_skipped:
   - edgex-support-scheduler
 metrics_skipped:
   - cpu
-  - some-error
+  - error
 experiments_skipped:
   cpu: 2
 
