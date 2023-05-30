@@ -48,11 +48,11 @@ def run(config):
     while True:
         step_start_time = time.time()
         try:
+            trails_data = get_trails(config['trails_server_urls'])
+            logger.debug(trails_data)
+            sla_data = get_service_level_agreements(trails_data)
+            logger.debug(sla_data)
             if config["use_archive"]:
-                trails_data = get_trails(config['trails_server_urls'])
-                logger.debug(trails_data)
-                sla_data = get_service_level_agreements(trails_data)
-                logger.debug(sla_data)
                 test_stored_data(config, trained_model, training_completion_time=training_completion_time,
                                  training_dataset_tag=trained_model.dataset_tag, sla_data=sla_data)
                 break
