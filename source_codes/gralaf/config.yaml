@@ -43,10 +43,12 @@ services_skipped:
   - edgex-support-notifications
   - edgex-support-scheduler
 metrics_skipped:
-  - cpu
-  - error
+  #- cpu
+  #- error
+  - nothing # just a placeholder
 experiments_skipped:
-  cpu: 2
+  #cpu: 2
+ nothing: 99 # just a placeholder
 
 # Choose from 'svm', 'random_forest' or 'cbn'
 rca_algorithm: 'svm'
