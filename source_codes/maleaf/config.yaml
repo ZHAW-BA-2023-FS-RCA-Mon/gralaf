@@ -1,13 +1,13 @@
 reporting_identifier: cluster_0
 prometheus_url: http://160.85.252.183:32090
 lasm_server_urls:
-  - "http://160.85.252.183:32002"
-#  - "http://127.0.0.1:32002"
-#  - "http://127.0.0.1:5001"
+  - "http://160.85.252.183:32102"
+#  - "http://127.0.0.1:32102"
+#  - "http://127.0.0.1:5002"
 trails_server_urls:
-#  - "http://127.0.0.1:32002"
-  - "http://160.85.252.183:32002"
-#  - "http://127.0.0.1:5001"
+#  - "http://127.0.0.1:32102"
+  - "http://160.85.252.183:32102"
+#  - "http://127.0.0.1:5002"
 
 # General properties
 step_interval: 60
