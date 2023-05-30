@@ -117,4 +117,4 @@ def get_sla_report():
 if __name__ == '__main__':
     logging.basicConfig(level=getattr(logging, LOG_LEVEL),
                         format=LOGGING_FORMAT, datefmt=TIME_FORMAT)
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5002)
