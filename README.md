@@ -1,23 +1,23 @@
-# Graph Based Liability Analysis Framework (GRALAF)
+# Machine Learning Based Root Cause Analysis Framework (MALEAF)
 
 -----------------------------------------
 
-GRALAF [[1]](#1) tracks metrics and compares them with the given Service Level Agreement (SLA) data from TRAILS. 
+MALEAF extends the GRALAF [[1]](#1) framework and tracks metrics and compares them with the given Service Level Agreement (SLA) data from TRAILS. 
 
-In the case of an SLA violation, it performs RCA based on CBN and reports to an external liability service about the corresponding violation with the estimated probability of fault types for each service being responsible for the incident. 
+In the case of an SLA violation, it performs RCA based on a chosen machine learning algorithm and reports to an external liability service about the corresponding violation with the estimated probability of fault types for each service being responsible for the incident. 
 
 It is developed in Python and can be deployed in the same Kubernetes environment with the [Edgex](https://github.com/edgexfoundry/edgex-go) services.
 
 ## :computer: Testbed Architecture
 
-<img src="images_for_git/useCase.png" alt="use case"/>
+<img src="images_for_git/Environment_Maleaf.png" alt="environment"/>
 
 We utilized five VMs for the entire test setup in an OpenStack cloud infrastructure.
 
-The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8GB RAM, and 50GB SSD storage.<br />
-For VM4 and VM5, each has 1 vCPU, 2GB RAM, and 30GB SSD.
+The resource specifications for VM1, VM2, and VM3 are 4 vCPU, 8 GB RAM, and 160 GB storage.<br />
+For VM4 and VM5, each has 1 vCPU, 2 GB RAM, and 120 GB storage.
 
-Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and GRALAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
+Three of them (VM1-3) are used to deploy a MicroK8s cluster environment which hosts Edgex and MALEAF microservices along with all the necessary system components such as Prometheus, Chaos Mesh, and Istio. 
 
 
 
@@ -40,11 +40,11 @@ Install docker if it is not available on VM1 or VM4 with `sudo snap install dock
 
 Then, the following commands can be used to build a docker image and upload it to the microK8's local repository from the related folders in [source_codes](source_codes)
 ```
-# On gralaf folder 
-sudo docker build -f Dockerfile-gralaf -t localhost:32000/gralaf:0.0.1 .
-sudo docker push localhost:32000/gralaf:0.0.1
+# On maleaf folder 
+sudo docker build -f Dockerfile-maleaf -t localhost:32000/maleaf:0.0.1 .
+sudo docker push localhost:32000/maleaf:0.0.1
 # On load-generator folder
-sudo docker build -f Dockerfile-gralaf -t localhost:32000/load-generator:0.0.1 .
+sudo docker build -f Dockerfile-locust -t localhost:32000/load-generator:0.0.1 .
 sudo docker push localhost:32000/load-generator:0.0.1
 # On mock-lasm-server folder
 sudo docker build -f Dockerfile-lasm-server -t localhost:32000/lasm-server:0.0.1 .
@@ -72,14 +72,14 @@ Note: You may need to add the ip address-hostname pair to /etc/hosts for the mas
 ...
 ```
 
-On master node(VM1), activate required add-ons with `microk8s enable community istio dns metrics-server`
+On master node (VM1), activate required add-ons with `microk8s enable community istio dns metrics-server`
 
 To have the Kubernetes Dashboard available (optionally), install the add-on with `microk8s enable dashboard`. 
 To access it, run `microk8s dashboard-proxy` in the terminal, open your browser, navigate to `https://your_ip:10443/` and enter the key provided in the terminal.
 
-In order to use **kubectl** instead of **microk8s.kubectl** `sudo snap alias microk8s.kubectl kubectl`
+In order to use **kubectl** instead of **microk8s.kubectl** execute `sudo snap alias microk8s.kubectl kubectl`
 
-Edgex/GRALAF/Prometheus/Chaos Mesh can be deployed by using the helm charts with the given instructions available under [gralaf_infrastructure](helm_charts/gralaf_infrastructure).
+Edgex/MALEAF/Prometheus/Chaos Mesh can be deployed by using the helm charts with the given instructions available under [maleaf_infrastructure](helm_charts/maleaf_infrastructure).
 
 Similarly, MQTT-based virtual IoT device applications can be deployed by using the helm charts with the given instructions available under [helm_iot](helm_charts/helm_iot).
 

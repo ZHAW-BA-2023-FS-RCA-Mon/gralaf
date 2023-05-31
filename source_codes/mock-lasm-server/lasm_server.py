@@ -67,7 +67,7 @@ def post_incident():
     return "<p>Here is your report</p>"
 
 
-@app.post("/gralaf/serviceData/")
+@app.post("/maleaf/serviceData/")
 def post_metrics():
     request_json = request.get_json()
     metric_texts = [""]
@@ -84,7 +84,7 @@ def post_metrics():
     return "<p>Here is your report</p>"
 
 
-@app.post("/gralaf/incidentReport/")
+@app.post("/maleaf/incidentReport/")
 def post_incident_with_probabilities():
     request_json = request.get_json()
     for index, result in enumerate(request_json["results"].copy()):
@@ -117,4 +117,4 @@ def get_sla_report():
 if __name__ == '__main__':
     logging.basicConfig(level=getattr(logging, LOG_LEVEL),
                         format=LOGGING_FORMAT, datefmt=TIME_FORMAT)
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5002)

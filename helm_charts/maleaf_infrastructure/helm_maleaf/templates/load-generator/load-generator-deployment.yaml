@@ -1,0 +1,62 @@
+# Copyright (C) 2022 Intel Corporation
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    org.maleaf.service: {{.Values.maleaf.app.loadGenerator}}
+  name: {{.Values.maleaf.app.loadGenerator}}
+spec:
+  replicas: {{.Values.maleaf.replicas.loadGenerator}}
+  selector:
+    matchLabels:
+      org.maleaf.service: {{.Values.maleaf.app.loadGenerator}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        org.maleaf.service: {{.Values.maleaf.app.loadGenerator}}
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: {{.Values.maleaf.app.loadGenerator}}
+        image: {{.Values.maleaf.image.loadGenerator.repository}}:{{.Values.maleaf.image.loadGenerator.tag}}
+        imagePullPolicy: {{.Values.maleaf.image.loadGenerator.pullPolicy}}
+        args: [ "--target", "http://edgex-ui.edgex.svc.cluster.local:4000","--number_of_users","50", "--number_of_devices","25"]
+        env:
+        - name: SERVICE_HOST
+          value: {{.Values.maleaf.app.loadGenerator}}
+        envFrom:
+        - configMapRef:
+            name: maleaf-common-variables
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: configmap
+          mountPath: /res   
+      {{- if .Values.maleaf.resources.loadGenerator.enforceLimits }}
+        resources:
+          limits:
+            memory: {{ .Values.maleaf.resources.loadGenerator.limits.memory }}
+            cpu: {{ .Values.maleaf.resources.loadGenerator.limits.cpu }}
+          requests:
+            memory: {{ .Values.maleaf.resources.loadGenerator.requests.memory }}
+            cpu: {{ .Values.maleaf.resources.loadGenerator.requests.cpu }}
+      {{- end}}
+      hostname: {{.Values.maleaf.app.loadGenerator}}
+      restartPolicy: Always
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: {{ .Values.maleaf.security.runAsUser }}
+        runAsGroup: {{ .Values.maleaf.security.runAsGroup }}
+      volumes:
+      - name: configmap
+        configMap:
+          name: load-generator-configmap
+          items:
+          - key: configuration.yaml
+            path: configuration.yaml
