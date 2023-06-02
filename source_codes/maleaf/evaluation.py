@@ -48,8 +48,8 @@ def loop_datasets():
         try:
             pass
             main.run(app_config)
-            training_data_shape = train_model(app_config)
-            shapes.append(training_data_shape)
+            #training_data_shape = train_model(app_config)
+            #shapes.append(training_data_shape[1])
         except Exception as e:
             logger.exception(f"Error occurred for datasets '{app_config['training_data']}':\n{e}")
     logger.info(f"\n{shapes}")

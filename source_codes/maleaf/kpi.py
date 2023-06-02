@@ -12,13 +12,13 @@ import pandas as pd
 
 import config as c
 
+RESULT_FILES_SUFFIX = "svm"
+
 PRECISION_LEVELS = [1, 2, 3, 4]
 SKIPPED_DATASETS = []
 
-# RESULT_FOLDERS = ["results_dual", "results_v2"]
-# RESULT_FOLDERS = ["results_dual"]
-RESULT_FOLDERS = ["results_v3"]
-# RESULT_FOLDERS = ["results_with_4_services"]
+RESULT_FOLDERS = ["results"]
+
 logger = logging.getLogger(__name__)
 DECISION_THRESHOLD = 0.184
 EXPERIMENT_NAMES = {
@@ -138,11 +138,13 @@ def get_ml_metrics(incidents, decision_threshold=DECISION_THRESHOLD, calculate_t
     false_negative_count = actual_incidents.count(False)
 
     accuracy = (true_positive_count + true_negative_count) / len(incidents)
+    precision = true_positive_count / (true_positive_count + false_positive_count) if (true_positive_count + false_positive_count) != 0 else 0
     recall = true_positive_count / len(actual_incidents)
+    f1score = 2 * ((precision * recall) / (precision + recall)) if (precision + recall) != 0 else 0
     fpr = false_positive_count / len(actual_no_incidents)
     fnr = false_negative_count / len(actual_incidents)
     logger.debug(f"\nAccuracy = {accuracy:.3f}\nRecall = {recall:.3f}")
-    results = {"accuracy": accuracy, "recall": recall, "fpr": fpr, "fnr": fnr}
+    results = {"accuracy": accuracy, "precision": precision, "recall": recall, "f1score": f1score,"fpr": fpr, "fnr": fnr}
     if calculate_threshold:
         best_threshold_value, best_score = calculate_optimal_threshold_value(incident_case_detection_confidences,
                                                                              no_incident_case_detection_confidences)
@@ -153,7 +155,9 @@ def get_ml_metrics(incidents, decision_threshold=DECISION_THRESHOLD, calculate_t
 def get_ml_metrics_per_service(incidents, service_names, decision_threshold=DECISION_THRESHOLD):
     global_accuracy_and_recall = get_ml_metrics(incidents, decision_threshold)
     accuracy_results = {"All": global_accuracy_and_recall["accuracy"]}
+    precision_results = {"All": global_accuracy_and_recall["precision"]}
     recall_results = {"All": global_accuracy_and_recall["recall"]}
+    f1score_results = {"All": global_accuracy_and_recall["f1score"]}
     fpr_results = {"All": global_accuracy_and_recall["fpr"]}
     fnr_results = {"All": global_accuracy_and_recall["fnr"]}
     for service_name in service_names:
@@ -162,10 +166,12 @@ def get_ml_metrics_per_service(incidents, service_names, decision_threshold=DECI
             continue
         service_accuracy = get_ml_metrics(filtered_incidents, decision_threshold)
         accuracy_results[service_name.replace("edgex_", "")] = service_accuracy["accuracy"]
+        precision_results[service_name.replace("edgex_", "")] = service_accuracy["precision"]
         recall_results[service_name.replace("edgex_", "")] = service_accuracy["recall"]
+        f1score_results[service_name.replace("edgex_", "")] = service_accuracy["f1score"]
         fpr_results[service_name.replace("edgex_", "")] = service_accuracy["fpr"]
         fnr_results[service_name.replace("edgex_", "")] = service_accuracy["fnr"]
-    return accuracy_results, recall_results, fpr_results, fnr_results
+    return accuracy_results, precision_results, recall_results, f1score_results, fpr_results, fnr_results
 
 
 def print_latex_table(results, columns=None):
@@ -273,15 +279,18 @@ def get_kpis(incidents, decision_threshold=DECISION_THRESHOLD):
 
     results_accuracy["Fault type recall"] = {}
     for service_name, values in fault_type_precision_data.items():
-        if not values:
-            continue
         service_name = service_name.replace("edgex_", "")
-        results_accuracy["Fault type recall"][service_name] = mean(values)
+        if not values:
+            results_accuracy["Fault type recall"][service_name] = 0
+        else:
+            results_accuracy["Fault type recall"][service_name] = mean(values)
     service_names = fault_type_precision_data.keys()
-    accuracy_results, recall_results, fpr_results, fnr_results = get_ml_metrics_per_service(incidents, service_names,
-                                                                                            decision_threshold)
+    accuracy_results, precision_results, recall_results, f1score_results, fpr_results, fnr_results = \
+        get_ml_metrics_per_service(incidents, service_names, decision_threshold)
     results_accuracy["Accuracy"] = accuracy_results
+    results_accuracy["Precision"] = precision_results
     results_accuracy["Recall"] = recall_results
+    results_accuracy["F1-Score"] = f1score_results
     results_accuracy["FPR"] = fpr_results
     # results["FNR"] = fnr_results
     average_fault_type_precision_data = mean(all_fault_type_precision_data) if all_fault_type_precision_data else 0
@@ -351,6 +360,7 @@ def chunks(xs, n):
 def update_aggregated_result(aggregated_results, new_results, part_index):
     for kpi, rates in new_results.items():
         for service_name, value in rates.items():
+            #if service_name in aggregated_results[kpi]:
             new_value = (part_index * aggregated_results[kpi][service_name] + value) / (
                     part_index + 1)
             aggregated_results[kpi][service_name] = new_value
@@ -379,7 +389,7 @@ def print_kpis_based_on_chunk_threshold_calculation(incidents, available_thresho
             update_aggregated_result(results_hit_rate_aggregated, {"MRR": results_partial["inverse_of_rank"]},
                                      chunk_index)
             update_aggregated_result(results_accuracy_aggregated, results_partial["results_accuracy"], chunk_index)
-    print_latex_table(results_accuracy_aggregated, ["Accuracy", "Recall", "FPR", "Fault type recall"])
+    print_latex_table(results_accuracy_aggregated, ["Accuracy", "Precision", "Recall", "F1-Score", "FPR", "Fault type recall"])
     print_latex_table(results_hit_rate_aggregated)
     return available_thresholds, miss_counter
 
@@ -413,11 +423,11 @@ if __name__ == '__main__':
     training_times = get_training_time(all_dataset_results)
     all_incidents = get_incidents(all_dataset_results)
     mrr_by_threshold = get_mrr_for_different_threshold_values(all_incidents)
-    save_data_to_file(mrr_by_threshold, f"mrr_results/{'_'.join(RESULT_FOLDERS)}")
+    save_data_to_file(mrr_by_threshold, f"mrr_results/{'_'.join(RESULT_FOLDERS)}_{RESULT_FILES_SUFFIX}")
     accuracy_by_threshold = get_accuracy_for_different_threshold_values(all_incidents)
-    save_data_to_file(accuracy_by_threshold, f"accuracy_results/{'_'.join(RESULT_FOLDERS)}")
+    save_data_to_file(accuracy_by_threshold, f"accuracy_results/{'_'.join(RESULT_FOLDERS)}_{RESULT_FILES_SUFFIX}")
     rca_times = get_rca_time(all_incidents)
-    save_data_to_file({"rca_times":rca_times,"training_times":training_times}, f"scalability_results/{'_'.join(RESULT_FOLDERS)}")
+    save_data_to_file({"rca_times":rca_times,"training_times":training_times}, f"scalability_results/{'_'.join(RESULT_FOLDERS)}_{RESULT_FILES_SUFFIX}")
 
     general_thresholds, miss_counter_for_hit = print_kpis_based_on_chunk_threshold_calculation(all_incidents)
     logger.info(f"Thresholds:{general_thresholds}")
@@ -432,14 +442,18 @@ if __name__ == '__main__':
     #     logger.info("No Incident Cases")
     #     get_kpis(no_incidents)
 
-    logger.info("Traffic Related Cases")
+    logger.info("Traffic Related Cases (Delay)")
     delay_incidents = filter_incidents_by_fault(all_incidents, 1)
     print_kpis_based_on_chunk_threshold_calculation(delay_incidents, general_thresholds)
 
-    logger.info("Performance Related Cases")
+    logger.info("Performance Related Cases (CPU)")
+    memory_incidents = filter_incidents_by_fault(all_incidents, 2)
+    print_kpis_based_on_chunk_threshold_calculation(memory_incidents, general_thresholds)
+
+    logger.info("Performance Related Cases (Memory)")
     memory_incidents = filter_incidents_by_fault(all_incidents, 3)
     print_kpis_based_on_chunk_threshold_calculation(memory_incidents, general_thresholds)
 
-    logger.info("Reliability Related Cases")
+    logger.info("Reliability Related Cases (Availability)")
     availability_incidents = filter_incidents_by_fault(all_incidents, 4)
     print_kpis_based_on_chunk_threshold_calculation(availability_incidents, general_thresholds)
