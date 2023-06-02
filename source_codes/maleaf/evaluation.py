@@ -11,8 +11,8 @@ from generate_model import train_model
 TRAINING_DATASET_START_INDEX = 0
 TEST_DATASET_START_INDEX = 1
 NUMBER_OF_DATASETS_FOR_TRAINING = 1
-TRAINING_DATASET_FOLDER = "dataset_50"
-TEST_DATASET_FOLDER = "dataset_v4"
+TRAINING_DATASET_FOLDER = "dataset"
+TEST_DATASET_FOLDER = "dataset"
 MAX_NUMBER_OF_SERVICES = 8
 logger = logging.getLogger(__name__)
 original_set_of_services_for_fault_injection = []
@@ -47,9 +47,9 @@ def loop_datasets():
         logger.info(f"Skipped services: {app_config['services_skipped']}")
         try:
             pass
-            # main.run(app_config)
+            main.run(app_config)
             training_data_shape = train_model(app_config)
-            shapes.append(training_data_shape[1])
+            shapes.append(training_data_shape)
         except Exception as e:
             logger.exception(f"Error occurred for datasets '{app_config['training_data']}':\n{e}")
     logger.info(f"\n{shapes}")
