@@ -11,18 +11,18 @@ trails_server_urls:
 
 # General properties
 step_interval: 60
-number_of_training_data: 110
-number_of_test_data: 41
-number_of_test_false_positive_data: 24
-number_of_initial_steps: 10
+number_of_training_data: 126
+number_of_test_data: 32
+number_of_test_false_positive_data: 30
+number_of_initial_steps: 30
 number_of_concurrent_faults: 1
-use_archive: false
+use_archive: true
 test_false_positive: true
 output_folder: results
 training_data:
-  - dataset/training_data_20230521-202044.csv
+  - dataset/training_data_20230531-134327.csv
 test_data:
-  #- dataset/training_data_20230511-104509.csv
+  - dataset/training_data_20230531-173430.csv
 
 services_for_fault_injection:
   - edgex-core-data
@@ -44,7 +44,7 @@ services_skipped:
   - edgex-support-scheduler
 metrics_skipped:
   #- cpu
-  #- error
+  - error
   - nothing # just a placeholder
 experiments_skipped:
   #cpu: 2
@@ -54,7 +54,8 @@ experiments_skipped:
 rca_algorithm: 'svm'
 
 # SVM properties
-svm_kernel: "linear"
+svm_kernel: 'linear'
+random_state_svm: 42
 
 # Random Forest properties
 number_of_trees: 100

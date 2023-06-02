@@ -63,7 +63,7 @@ class TrainedModelSVM:
 
         X = training_dataframe.drop(columns=all_service_statuses)
 
-        classifier = SVC(kernel=config["svm_kernel"], probability=True)
+        classifier = SVC(kernel=config["svm_kernel"], random_state=config["random_state_svm"], probability=True)
         classifier.fit(X, Y)
 
         matched = 0
