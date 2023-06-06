@@ -265,16 +265,16 @@ def get_kpis(incidents, decision_threshold=DECISION_THRESHOLD):
     for precision_level in PRECISION_LEVELS:
         all_service_precision_data = []
         all_inverse_of_rank_data = []
-        results_hit_rate[f"HR@{precision_level}"] = {}
+        results_hit_rate[f"PR@{precision_level}"] = {}
         for service_name, values in hit_rate_data[precision_level].items():
             if not values:
                 continue
             shortened_service_name = service_name.replace("edgex_", "")
-            results_hit_rate[f"HR@{precision_level}"][shortened_service_name] = mean(values)
+            results_hit_rate[f"PR@{precision_level}"][shortened_service_name] = mean(values)
             all_service_precision_data.extend(values)
             inverse_of_rank_score[shortened_service_name] = mean(inverse_of_rank_data[service_name])
             all_inverse_of_rank_data.extend(inverse_of_rank_data[service_name])
-        results_hit_rate[f"HR@{precision_level}"]["All"] = mean(all_service_precision_data)
+        results_hit_rate[f"PR@{precision_level}"]["All"] = mean(all_service_precision_data)
         inverse_of_rank_score["All"] = mean(all_inverse_of_rank_data)
 
     results_accuracy["Fault type recall"] = {}
