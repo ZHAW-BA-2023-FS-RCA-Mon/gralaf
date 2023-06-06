@@ -73,10 +73,10 @@ class TrainedModelSVM:
             match = actual == predicted
             if match:
                 matched += 1
-            logger.info('actual: ' + str(actual) + ', predicted: ' + str(predicted) + ', its match: ' + str(match))
 
         accuracy = matched / int(config["number_of_training_data"])
-        logger.info('accuracy: ' + str(accuracy) + ' for rows: ' + str(config["number_of_training_data"]))
+        logger.info('Accuracy of training set on trained model: ' + str(accuracy) + ' for rows: ' +
+                    str(config["number_of_training_data"]))
         return classifier
 
     @staticmethod
