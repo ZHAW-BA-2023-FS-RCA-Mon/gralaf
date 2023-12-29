@@ -67,6 +67,7 @@ def get_training_time(all_results):
     for dataset_result in all_results:
         training_completion_times.append(dataset_result['training_completion_time'])
     logger.info(f"Training times: {training_completion_times}")
+    pd.DataFrame(training_completion_times).to_csv(f'kpi/training_times_{RESULT_FILES_SUFFIX}.csv', header=None, index=False)
     logger.info(f"Average training time: {mean(training_completion_times):.2f} seconds with "
                 f"std: {stdev(training_completion_times):.2f} for {len(training_completion_times)} datasets")
     return training_completion_times
@@ -76,13 +77,14 @@ def get_rca_time(incidents):
     rca_durations = []
     training_completion_times = []
     for incident in incidents:
-        analysis_start_time = datetime.datetime.strptime(incident['analysis_start_time'], "%m/%d/%Y %H:%M:%S")
+        analysis_start_time = datetime.datetime.strptime(incident['analysis_start_time'], "%m/%d/%Y %H:%M:%S.%f")
         root_cause_analysis_time = datetime.datetime.strptime(incident['root_cause_analysis_time'],
-                                                              "%m/%d/%Y %H:%M:%S")
+                                                              "%m/%d/%Y %H:%M:%S.%f")
         rca_duration = root_cause_analysis_time - analysis_start_time
-        rca_durations.append(rca_duration.seconds)
+        rca_durations.append(rca_duration.total_seconds())
     logger.info(f"RCA times: {rca_durations}")
-    logger.info(f"Average RCA time: {mean(rca_durations):.2f} seconds with std: {stdev(rca_durations):.2f}")
+    pd.DataFrame(rca_durations).to_csv(f'kpi/rca_times_{RESULT_FILES_SUFFIX}.csv', header=None, index=False)
+    logger.info(f"Average RCA time: {mean(rca_durations)} seconds with std: {stdev(rca_durations)}")
     return rca_durations
 
 

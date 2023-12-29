@@ -47,7 +47,7 @@ def print_row_with_discrete_value(series_data, discrete_values):
 
 def check_metrics(config, trained_model, new_step_data, sla_data=None):
     query_results = {}
-    analysis_start_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+    analysis_start_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")
     # logger.info(f"Row to be checked:\n{new_step_data}")
     for column in new_step_data.index.copy():
         try:
@@ -111,7 +111,7 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
 
         prediction = trained_model.structure_model.predict([data])[0]
         prediction_proba = trained_model.structure_model.predict_proba([data])[0]
-        root_cause_analysis_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+        root_cause_analysis_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")
 
         classes = np.array(trained_model.structure_model.classes_)
         predictions = []
@@ -204,7 +204,7 @@ def check_metrics(config, trained_model, new_step_data, sla_data=None):
         for result in predictions:
             result_table += f"{result['service_name']}: {result['probability']} ({result['fault_distribution']})\n"
         logger.info(result_table)
-        root_cause_analysis_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+        root_cause_analysis_time = datetime.now().strftime("%m/%d/%Y %H:%M:%S.%f")
         if predictions:
             main_responsible = predictions[0]
             main_responsible_data = None
