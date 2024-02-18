@@ -12,7 +12,7 @@ import pandas as pd
 
 import config as c
 
-RESULT_FILES_SUFFIX = "svm"
+RESULT_FILES_SUFFIX = "random_forest"
 
 PRECISION_LEVELS = [1, 2, 3, 4]
 SKIPPED_DATASETS = []
@@ -362,10 +362,10 @@ def chunks(xs, n):
 def update_aggregated_result(aggregated_results, new_results, part_index):
     for kpi, rates in new_results.items():
         for service_name, value in rates.items():
-            #if service_name in aggregated_results[kpi]:
-            new_value = (part_index * aggregated_results[kpi][service_name] + value) / (
+            if service_name in aggregated_results[kpi]:
+                new_value = (part_index * aggregated_results[kpi][service_name] + value) / (
                     part_index + 1)
-            aggregated_results[kpi][service_name] = new_value
+                aggregated_results[kpi][service_name] = new_value
 
 
 def print_kpis_based_on_chunk_threshold_calculation(incidents, available_thresholds=None):

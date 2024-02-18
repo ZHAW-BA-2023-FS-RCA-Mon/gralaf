@@ -18,11 +18,11 @@ number_of_initial_steps: 30
 number_of_concurrent_faults: 1
 use_archive: true
 test_false_positive: true
-output_folder: results
+output_folder: results_svm
 training_data:
-  - dataset/training_data_20230531-134327.csv
+  - dataset/double_failures/training_data_20240109-174641.csv
 test_data:
-  - dataset/training_data_20230531-173430.csv
+  - dataset/double_failures/training_data_20240110-064448.csv
 
 services_for_fault_injection:
   - edgex-core-data
