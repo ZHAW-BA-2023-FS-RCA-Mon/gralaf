@@ -4,6 +4,7 @@ import time
 from os import path
 
 import numpy as np
+import pandas as pd
 from sklearn.svm import SVC
 
 logger = logging.getLogger(__name__)
@@ -52,16 +53,24 @@ class TrainedModelSVM:
     @staticmethod
     def learn_from_data(config, training_dataframe, all_service_statuses):
         Y = []
-        for i in range(config["number_of_initial_steps"]):
-            Y = np.append(Y, 'no_fault')
+        X = pd.DataFrame(columns=training_dataframe.columns)
 
         for index, row in training_dataframe.iterrows():
+            error_classes = []
             for service_status in all_service_statuses.copy():
                 fault_status = row[service_status]
                 if fault_status != 0:
-                    Y = np.append(Y, (service_status + '_' + str(fault_status)))
+                    error_classes = np.append(error_classes, service_status + '_' + str(fault_status))
 
-        X = training_dataframe.drop(columns=all_service_statuses)
+            if len(error_classes) == 0:
+                Y = np.append(Y, 'no_fault')
+                X = X.append(row)
+
+            for error_class in error_classes:
+                Y = np.append(Y, error_class)
+                X = X.append(row)
+
+        X = X.drop(columns=all_service_statuses)
 
         classifier = SVC(kernel=config["svm_kernel"], random_state=config["random_state_svm"], probability=True)
         classifier.fit(X, Y)
